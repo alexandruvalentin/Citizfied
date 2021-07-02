@@ -42,3 +42,14 @@ This is the presentation website for a City Review Application. Citizfied uses H
 4.	"As a user, I want to be able to submit, edit and/or delete content to your website."
 5.	“As a user, I want to look up other user’s reviews using a search engine.”
 6.	"As a frequent visitor, I want to be able to access your website across a range of devices."
+
+### __Structure__
+
+The website is designed to be intuitive and learnable
+
+1.	Interaction design:
+-	The interface responds to the user actions as expected. The scroll/swipe functional behaviour is standard and the buttons respond instantly when actioned;
+-	Subtle visual feedback will be added throughout the page in order to increase the user's interaction experience;
+2.	Information architecture:
+-	The content is organised in order of importance, from top to bottom and left to right
+-	The information is structured in nested lists.
