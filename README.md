@@ -53,3 +53,44 @@ The website is designed to be intuitive and learnable
 2.	Information architecture:
 -	The content is organised in order of importance, from top to bottom and left to right
 -	The information is structured in nested lists.
+
+### __Skeleton__
+
+* Wireframes
+
+### __Design Choices__
+
+* Colors
+
+* Typography
+
+* Media
+
+* Iconography
+
+### __Features__
+
+### __Technologies Used__
+
+- Workspace
+
+- Languages
+
+- Frameworks & Libraries
+
+- Version Control
+
+- Wireframes
+    * [Balsamiq](https://balsamiq.com/) was used to create the wireframes
+
+- Media
+
+### __Testing__
+
+ - ### Click [here] for the full testing process.
+
+### __Deployment__
+
+### __Credits__
+
+### __Acknowledgements__
