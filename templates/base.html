@@ -35,18 +35,20 @@
                         <a class="nav-link" href="#">Log In</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
+                        <a class="nav-link" href="{{ url_for('register') }}">Register</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
-
-    {% block content %}
-    {% endblock %}
+    <div class="container">
 
 
+        {% block content %}
+        {% endblock %}
 
+
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
