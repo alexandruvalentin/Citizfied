@@ -1,10 +1,13 @@
 import os
 from flask import (
-    Flask, flash, render_template,
-    redirect, request, session, url_for)
+    Flask, flash, render_template, redirect, request, session, url_for,
+    send_from_directory, make_response, jsonify)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+import pycountry
+import requests
+import json
 if os.path.exists("env.py"):
     import env
 
@@ -97,6 +100,45 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/add_review", methods=["GET", "POST"])
+def add_review():
+    if request.method == "POST":
+        task = {
+            "country": request.form.get("category_name"),
+            "city": request.form.get("task_name"),
+            "rating": request.form.get("task_description"),
+            "review": request.form.get("due_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.tasks.insert_one(task)
+        flash("Task Successfully Added")
+        return redirect(url_for("get_tasks"))
+
+    countries = pycountry.countries
+    return render_template(
+        "add_review.html", countries=countries)
+
+
+@app.route('/countries')
+def countries():
+    # CREDITS to cities.json: https://github.com/lutangar/cities.json
+    return send_from_directory('', 'cities.json')
+
+
+@app.route('/cities/<country_code>')
+def cities(country_code):
+    r = requests.get(
+        url_for('countries', _external=True))
+    all_cities = json.loads(r.content)
+
+    cities = [c for c in all_cities if c['country'] == country_code]
+    citylist = []
+    for city in cities:
+        citylist.append(city['name'])
+
+    return make_response(jsonify(sorted(citylist)))
 
 
 if __name__ == "__main__":

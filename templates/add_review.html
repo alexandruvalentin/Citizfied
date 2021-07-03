@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="text-center">Add Review</h3>
+<select id="country" name="country">
+    <option value="">Choose Country</option>
+    {% for country in countries %}
+    <option value="{{ country.alpha_2 }}">{{ country.name }}</option>
+    {% endfor %}
+</select>
+<select name="city" id="city">
+    <option value="">Choose City</option>
+</select>
+{% endblock %}
+{% block custom_js %}
+<script src="{{ url_for('static', filename='js/api.js')}}"></script>
+{% endblock %}
