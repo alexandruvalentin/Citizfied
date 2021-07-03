@@ -41,14 +41,28 @@
             </div>
         </nav>
     </header>
-    <div class="container">
 
+    <section class="container">
+        <!--flash messages-->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashes">
+            <div class="col">
+                <h4 class="text-center">{{ message }}</h4>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </section>
+
+    <main class="container">
 
         {% block content %}
         {% endblock %}
 
-
-    </div>
+    </main>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
