@@ -70,6 +70,12 @@ The website is designed to be intuitive and learnable
 
 ### __Features__
 
+### __Database__
+
+The MongoDB database used for this project is document-based as a relational database is not needed.
+
+![DB Schema](https://github.com/alexandruvalentin/Citizfied/blob/main/readme-images/db-schema.png)
+
 ### __Technologies Used__
 
 - Workspace
