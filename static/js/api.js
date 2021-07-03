@@ -14,15 +14,17 @@ const cityElem = document.getElementById('city');
 
 countryElem.addEventListener('change', () => {
     const countryCode = countryElem.value;
-    const cityPayload = {
-        "method": "GET"
-    }
+    if (countryCode) {
+        const cityPayload = {
+            "method": "GET"
+        }
 
-    fetchApi('/cities/' + countryCode, cityPayload, (response) => {
-        cityElem.innerHTML = response.map(city => {
-            return `<option value="${city}">${city}</option>`;
-        }).join();
-    }, (error) => {
-        console.log(error)
-    })
+        fetchApi('/cities/' + countryCode, cityPayload, (response) => {
+            cityElem.innerHTML = response.map(city => {
+                return `<option value="${city}">${city}</option>`;
+            }).join();
+        }, (error) => {
+            console.log(error)
+        })
+    }
 });

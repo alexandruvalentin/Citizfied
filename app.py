@@ -105,16 +105,16 @@ def logout():
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
     if request.method == "POST":
-        task = {
-            "country": request.form.get("category_name"),
-            "city": request.form.get("task_name"),
-            "rating": request.form.get("task_description"),
-            "review": request.form.get("due_date"),
-            "created_by": session["user"]
+        review = {
+            "country": request.form.get("country"),
+            "city": request.form.get("city"),
+            "rating": request.form.get("rating"),
+            "comment": request.form.get("comment"),
+            "user_id": session["user"]
         }
-        mongo.db.tasks.insert_one(task)
-        flash("Task Successfully Added")
-        return redirect(url_for("get_tasks"))
+        mongo.db.reviews.insert_one(review)
+        flash("Review Successfully Added")
+        return redirect(url_for("get_reviews"))
 
     countries = pycountry.countries
     return render_template(
