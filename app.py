@@ -143,8 +143,22 @@ def cities(country_code):
 
 @app.route('/edit_review/<review_id>', methods=["GET", "POST"])
 def edit_review(review_id):
+    if request.method == "POST":
+        submit = {
+            "country": request.form.get("country"),
+            "city": request.form.get("city"),
+            "rating": request.form.get("rating"),
+            "comment": request.form.get("comment"),
+            "user_id": session["user"]
+        }
+
+        mongo.db.reviews.update({"_id": ObjectId(review_id)}, submit)
+        flash("Review Successfully Updated")
+
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
-    return render_template("edit_review.html", review=review)
+    countries = pycountry.countries
+    return render_template(
+        "edit_review.html", countries=countries, review=review)
 
 
 if __name__ == "__main__":
