@@ -32,7 +32,8 @@
             <p><i class="fas fa-star"></i>
                 Rating</p>
             <div class="range-slider">
-                <input name="rating" class="range-slider__range" type="range" value="1" min="1" max="5" step="0.5">
+                <input name="rating" class="range-slider__range custom-range" type="range" value="1" min="1" max="5"
+                    step="0.5">
                 <span class="range-slider__value">0</span>
             </div>
         </div>
@@ -47,7 +48,7 @@
         <div class="row">
             <div class="col text-center">
                 <button type="submit" class="btn btn-primary">
-                    Submit Review <i class="fas fa-sign-in-alt"></i>
+                    Add Review <i class="fas fa-check"></i>
                 </button>
             </div>
         </div>
@@ -55,6 +56,6 @@
 </form>
 
 {% endblock %}
-{% block custom_js %}
+{% block scripts %}
 <script src="{{ url_for('static', filename='js/api.js')}}"></script>
 {% endblock %}

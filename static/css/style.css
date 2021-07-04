@@ -5,3 +5,16 @@ body {
 .flashes h4 {
     line-height: 5;
 }
+
+.btn.btn-info {
+    margin: 2px;
+}
+
+.btn.btn-danger {
+    margin: 2px;
+}
+
+.fa-caret-down {
+    padding: 0;
+    margin-left: 10px;
+}

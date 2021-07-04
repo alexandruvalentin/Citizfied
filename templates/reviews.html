@@ -1,25 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h3 class="text-center">All Reviews</h3>
 
 <div class="accordion" id="accordion">
     {% for review in reviews %}
     <div class="card">
-        <div class="card-header" id="h{{ review._id }}">
-            <h2 class="mb-0">
-                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                    data-target="#c{{ review._id }}" aria-expanded="true" aria-controls="c{{ review._id }}">
-                    <i class="fas fa-caret-down"></i>
-                    <strong>{{ review.country }}</strong> : {{ review.city }}
-                </button>
-            </h2>
-        </div>
-
-        <div id="c{{ review._id }}" class="collapse" aria-labelledby="h{{ review._id }}" data-parent="#accordion">
-            <div class="card-body">
-                <strong>{{ review.user_id }} : {{ review.rating }}</strong>
-                <p>{{ review.comment }}</p>
+        <div class="row">
+            <div class="col-2 d-flex align-items-center caret-container">
+                <a type="button" data-toggle="collapse" data-target="#c{{ review._id }}" aria-expanded="true"
+                    aria-controls="c{{ review._id }}"><i class="fas fa-caret-down fa-2x"></i></a>
+                <div class="col d-flex">
+                    <button type="button" class="btn btn-info">Edit</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </div>
             </div>
+            <div class="col">
+                <div class="card-header" id="h{{ review._id }}">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                            data-target="#c{{ review._id }}" aria-expanded="true" aria-controls="c{{ review._id }}">
+                            <strong>{{ review.country }}</strong> : {{ review.city }}
+                        </button>
+                    </h2>
+                </div>
+                <div id="c{{ review._id }}" class="collapse" aria-labelledby="h{{ review._id }}"
+                    data-parent="#accordion">
+                    <div class="card-body">
+                        <strong>{{ review.user_id }} : {{ review.rating }}</strong>
+                        <p>{{ review.comment }}</p>
+                    </div>
+                </div>
+            </div>
+            .col
         </div>
     </div>
     {% endfor %}

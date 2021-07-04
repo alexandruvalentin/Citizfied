@@ -19,3 +19,24 @@ var rangeSlider = function () {
 };
 
 rangeSlider();
+
+// document.querySelectorAll('[data-toggle=collapse]').forEach((el) => {
+//     el.addEventListener('click', () => {
+//         // const collapse = el.closest('.row').querySelector('.collapse');
+//         // const caret = el.closest('.row').querySelector('.caret-container').querySelector('i.fas');
+//         // if (collapse.classList.contains('show')) {
+//         //     console.log('show');
+//         //     caret.classList.remove('fa-caret-down');
+//         //     caret.classList.add('fa-caret-right');
+//         // } else {
+//         //     console.log('hide');
+//         //     caret.classList.add('fa-caret-down');
+//         //     caret.classList.remove('fa-caret-right');
+//         // }
+
+//     })
+// });
+
+// $('#myCollapsible').on('shown.bs.collapse', function () {
+//     // do something...
+// })
