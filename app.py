@@ -141,6 +141,12 @@ def cities(country_code):
     return make_response(jsonify(sorted(citylist)))
 
 
+@app.route('/edit_review/<review_id>', methods=["GET", "POST"])
+def edit_review(review_id):
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    return render_template("edit_review.html", review=review)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
