@@ -24,7 +24,7 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/get_reviews')
 def get_reviews():
-    reviews = list(mongo.db.reviews.find())
+    reviews = list(mongo.db.reviews.find().limit(5))
     return render_template("reviews.html", reviews=reviews)
 
 
@@ -143,28 +143,35 @@ def cities(country_code):
 
 @app.route('/edit_review/<review_id>', methods=["GET", "POST"])
 def edit_review(review_id):
-    if request.method == "POST":
-        submit = {
-            "country": request.form.get("country"),
-            "city": request.form.get("city"),
-            "rating": request.form.get("rating"),
-            "comment": request.form.get("comment"),
-            "user_id": session["user"]
-        }
-
-        mongo.db.reviews.update({"_id": ObjectId(review_id)}, submit)
-        flash("Review Successfully Updated")
-
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
-    countries = pycountry.countries
-    return render_template(
-        "edit_review.html", countries=countries, review=review)
+    if session.get('user') == review.get('user_id'):
+        if request.method == "POST":
+            submit = {
+                "country": request.form.get("country"),
+                "city": request.form.get("city"),
+                "rating": request.form.get("rating"),
+                "comment": request.form.get("comment"),
+                "user_id": session["user"]
+            }
+
+            mongo.db.reviews.update({"_id": ObjectId(review_id)}, submit)
+            flash("Review Successfully Updated")
+        countries = pycountry.countries
+        return render_template(
+            "edit_review.html", countries=countries, review=review)
+    else:
+        flash("Only authors can manage reviews!")
+        return redirect(url_for("get_reviews"))
 
 
 @app.route("/delete_review/<review_id>")
 def delete_review(review_id):
-    mongo.db.reviews.remove({"_id": ObjectId(review_id)})
-    flash("Review Deleted")
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    if session.get('user') == review.get('user_id'):
+        mongo.db.reviews.remove({"_id": ObjectId(review_id)})
+        flash("Review Deleted")
+    else:
+        flash("Only authors can delete reviews!")
     return redirect(url_for("get_reviews"))
 
 
