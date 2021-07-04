@@ -82,16 +82,21 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
+@app.route("/profile", methods=["GET", "POST"])
+def profile():
     # grab the session user's username from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+    user = mongo.db.users.find_one(
+        {"username": session.get('user')})
+    if user:
+        if request.method == "POST":
+            pass
 
-    if session["user"]:
-        return render_template("profile.html", username=username)
-
-    return redirect(url_for("login"))
+        reviews = list(mongo.db.reviews.find(
+            {'user': user.get("username")}))
+        return render_template("profile.html", reviews=reviews)
+    else:
+        flash("Please log in")
+        return redirect(url_for("login"))
 
 
 @app.route("/logout")
@@ -110,7 +115,7 @@ def add_review():
             "city": request.form.get("city"),
             "rating": request.form.get("rating"),
             "comment": request.form.get("comment"),
-            "user_id": session["user"]
+            "user": session["user"]
         }
         mongo.db.reviews.insert_one(review)
         flash("Review Successfully Added")
@@ -144,14 +149,14 @@ def cities(country_code):
 @app.route('/edit_review/<review_id>', methods=["GET", "POST"])
 def edit_review(review_id):
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
-    if session.get('user') == review.get('user_id'):
+    if session.get('user') == review.get('user'):
         if request.method == "POST":
             submit = {
                 "country": request.form.get("country"),
                 "city": request.form.get("city"),
                 "rating": request.form.get("rating"),
                 "comment": request.form.get("comment"),
-                "user_id": session["user"]
+                "user": session["user"]
             }
 
             mongo.db.reviews.update({"_id": ObjectId(review_id)}, submit)
@@ -167,7 +172,7 @@ def edit_review(review_id):
 @app.route("/delete_review/<review_id>")
 def delete_review(review_id):
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
-    if session.get('user') == review.get('user_id'):
+    if session.get('user') == review.get('user'):
         mongo.db.reviews.remove({"_id": ObjectId(review_id)})
         flash("Review Deleted")
     else:
