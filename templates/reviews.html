@@ -31,7 +31,7 @@
                 <div id="c{{ review._id }}" class="collapse" aria-labelledby="h{{ review._id }}"
                     data-parent="#accordion">
                     <div class="card-body">
-                        <strong>{{ review.user }} : {{ review.rating }}</strong>
+                        <strong>{{ review.name }} : {{ review.rating }}</strong>
                         <p>{{ review.comment }}</p>
                     </div>
                 </div>
@@ -40,6 +40,5 @@
     </div>
     {% endfor %}
 </div>
-
 
 {% endblock %}
