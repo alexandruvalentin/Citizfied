@@ -94,11 +94,18 @@ def profile():
         {"username": session.get('user')})
     if user:
         if request.method == "POST":
-            pass
+            updated_user = {
+                "name": request.form.get("name"),
+            }
+            mongo.db.users.update(
+                {"_id": ObjectId(user.get("_id"))}, {
+                    '$set': updated_user})
+            flash("Display name successfully updated!")
+            return redirect(url_for("profile"))
 
         reviews = list(mongo.db.reviews.find(
             {'user': user.get("username")}))
-        return render_template("profile.html", reviews=reviews)
+        return render_template("profile.html", reviews=reviews, user=user)
     else:
         flash("Please log in")
         return redirect(url_for("login"))

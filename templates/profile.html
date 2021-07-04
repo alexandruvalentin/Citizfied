@@ -5,13 +5,17 @@
     <div class="col card">
         <div class="card-body">
             <h3 class="text-center">
-                {{ session['user'] }}'s Profile
+                {{ user.username }}'s Profile
             </h3>
         </div>
     </div>
 </div>
 <h3>Personal details</h3>
-form
+<form class="" method="POST">
+    <label for="name">Display name:</label>
+    <input type="text" name="name" id="name" value="{{ user.name }}">
+    <input type="submit" value="Update">
+</form>
 <h3>My reviews</h3>
 <div class="accordion" id="accordion">
     {% for review in reviews %}
