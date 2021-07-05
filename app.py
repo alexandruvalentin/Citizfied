@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 from flask import (
     Flask, flash, render_template, redirect, request, session, url_for,
     send_from_directory, make_response, jsonify)
@@ -141,7 +142,9 @@ def add_review():
             "city": request.form.get("city"),
             "rating": request.form.get("rating"),
             "comment": request.form.get("comment"),
-            "user": session["user"]
+            "user": session["user"],
+            "added_on": datetime.now().strftime('%B %d, %Y, %H:%M'),
+            "edited": datetime.now().strftime('%B %d, %Y, %H:%M')
         }
         mongo.db.reviews.insert_one(review)
         flash("Review Successfully Added")
@@ -182,11 +185,14 @@ def edit_review(review_id):
                 "city": request.form.get("city"),
                 "rating": request.form.get("rating"),
                 "comment": request.form.get("comment"),
-                "user": session["user"]
+                "user": session["user"],
+                "edited": datetime.now().strftime('%B %d, %Y, %H:%M')
             }
 
-            mongo.db.reviews.update({"_id": ObjectId(review_id)}, submit)
+            mongo.db.reviews.update({"_id": ObjectId(review_id)}, {
+                '$set': submit})
             flash("Review Successfully Updated")
+            return redirect(url_for("get_reviews"))
         countries = pycountry.countries
         return render_template(
             "edit_review.html", countries=countries, review=review)
