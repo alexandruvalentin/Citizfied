@@ -25,9 +25,14 @@ mongo = PyMongo(app)
 @app.route('/', methods=["GET", "POST"])
 @app.route('/get_reviews', methods=["GET", "POST"])
 def get_reviews():
-    if request.method == "POST":
-        query = request.form.get("query")
+    if request.args.get('s'):
+        query = request.args.get('s')
         reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
+        if not reviews:
+            country = pycountry.countries.get(name=query)
+            if country:
+                reviews = list(mongo.db.reviews.find(
+                    {"$text": {"$search": country.alpha_2}}))
     else:
         reviews = list(mongo.db.reviews.find().limit(5))
     for i, review in enumerate(reviews):
