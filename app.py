@@ -21,22 +21,19 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-@app.route('/')
-@app.route('/get_reviews')
+@app.route('/', methods=["GET", "POST"])
+@app.route('/get_reviews', methods=["GET", "POST"])
 def get_reviews():
-    reviews = list(mongo.db.reviews.find().limit(5))
+    if request.method == "POST":
+        query = request.form.get("query")
+        reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
+    else:
+        reviews = list(mongo.db.reviews.find().limit(5))
     for i, review in enumerate(reviews):
         user = mongo.db.users.find_one({"username": review.get('user')})
-        if user:
-            reviews[i]['name'] = user.get('name')
+    if user:
+        reviews[i]['name'] = user.get('name')
 
-    return render_template("reviews.html", reviews=reviews)
-
-
-@app.route("/search", methods=["GET", "POST"])
-def search():
-    query = request.form.get("query")
-    reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
     return render_template("reviews.html", reviews=reviews)
 
 
