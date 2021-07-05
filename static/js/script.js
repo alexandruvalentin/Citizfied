@@ -20,6 +20,8 @@ var rangeSlider = function () {
 
 rangeSlider();
 
+$('.toast').toast('show')
+
 // document.querySelectorAll('[data-toggle=collapse]').forEach((el) => {
 //     el.addEventListener('click', () => {
 //         // const collapse = el.closest('.row').querySelector('.collapse');

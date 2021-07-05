@@ -31,8 +31,11 @@ def get_reviews():
         reviews = list(mongo.db.reviews.find().limit(5))
     for i, review in enumerate(reviews):
         user = mongo.db.users.find_one({"username": review.get('user')})
-    if user:
-        reviews[i]['name'] = user.get('name')
+        country = pycountry.countries.get(alpha_2=review.get('country'))
+        if user:
+            reviews[i]['name'] = user.get('name')
+        if country:
+            reviews[i]['country'] = country.name
 
     return render_template("reviews.html", reviews=reviews)
 
@@ -50,7 +53,8 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "name": request.form.get("name")
         }
         mongo.db.users.insert_one(register)
 
@@ -67,7 +71,7 @@ def login():
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username")})
+            {"username": request.form.get("username").lower()})
 
         if existing_user:
             # ensure hashed password matches user input
@@ -109,6 +113,12 @@ def profile():
 
         reviews = list(mongo.db.reviews.find(
             {'user': user.get("username")}))
+
+        for i, review in enumerate(reviews):
+            country = pycountry.countries.get(alpha_2=review.get('country'))
+            if country:
+                reviews[i]['country'] = country.name
+
         return render_template("profile.html", reviews=reviews, user=user)
     else:
         flash("Please log in")
