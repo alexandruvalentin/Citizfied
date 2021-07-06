@@ -28,8 +28,13 @@
 }
 
 .navbar-collapse {
+    background-color: #fff;
+    display: flex;
     justify-content: flex-end;
-    padding-right: 6rem;
+}
+
+.navbar-collapse .nav-item .nav-link {
+    text-align: end;
 }
 
 .navbar-expand-lg {
@@ -72,8 +77,12 @@ body {
     z-index: 9999;
 }
 
-.hero-container .image-container {
-    height: 60vh;
+section {
+    margin-top: 2rem;
+}
+
+section#hero, section#toasts {
+    margin-top: 0;
 }
 
 .image-container {
@@ -94,9 +103,8 @@ body {
     max-width: 60%;
 }
 
-
 .hero-container {
-    height: 50vw;
+    height: 30vh;
 }
 
 .cta-header h1 {
@@ -113,10 +121,18 @@ body {
     font-weight: 600;
 }
 
-.cta-buttons a {
-
-}
-
 .review-rating {
     white-space: nowrap;
+}
+
+@media screen and (min-width: 576px) {
+    .hero-container {
+        height: 40vh;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .hero-container {
+        height: 50vh;
+    }
 }

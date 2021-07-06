@@ -2,8 +2,8 @@
 {% block content %}
 <section id="hero">
     <div class="container-fluid hero-container">
-        <div class="row h-100">
-            <div class="col-6 image-container h-100"
+        <div class="row h-100 mx-0">
+            <div class="col-6 image-container"
                 style="background-image: url('{{ url_for('images', file='hero-image.jpg') }}');">
             </div>
             <div class="col-6 cta-container h-100">
@@ -27,7 +27,7 @@
     </div>
 </section>
 
-<section id="reviews">
+<section id="reviews" class="content">
     <div class="container-xl">
         <div class="row">
             <div class="col">
