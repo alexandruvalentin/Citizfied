@@ -1,76 +1,112 @@
 {% extends "base.html" %}
 {% block content %}
-
-<h3 class="text-center">All Reviews</h3>
-
-<div class="container">
-    <div class="row card">
-        <form method="GET" class="col-12">
-            <div class="row text-center">
-                <div class="col">
-                    <i class="fas fa-search"></i>
-                    <input type="text" name="s" id="query" minlength="3" required>
-                    <label for="query">Search Reviews</label>
-                </div>
-                <div class="col">
-                    <a href="{{ url_for('get_reviews') }}" class="btn btn-danger">Reset</a>
-                    <button type="submit" class="btn btn-info"><i class="fas fa-search"></i> Search</button>
-                </div>
+<section id="hero">
+    <div class="container-fluid hero-container">
+        <div class="row h-100">
+            <div class="col-6 image-container h-100"
+                style="background-image: url('{{ url_for('images', file='hero-image.jpg') }}');">
             </div>
-        </form>
-    </div>
-</div>
-
-{% if reviews|length > 0 %}
-<div class="accordion" id="accordion">
-    {% for review in reviews %}
-    <div class="card">
-        <div class="row">
-            <div class="col">
-                <div class="card-header" id="h{{ review._id }}">
-                    <div class="row">
-                        <div class="col-2 d-flex align-items-center caret-container">
-                            <a type="button" data-toggle="collapse" data-target="#c{{ review._id }}"
-                                aria-expanded="true" aria-controls="c{{ review._id }}"><i
-                                    class="fas fa-caret-down fa-2x"></i></a>
-                            <div class="col d-flex">
-                                {% if session.user == review.user %}
-                                <a href="{{ url_for('edit_review', review_id=review._id) }}" type="button"
-                                    class="btn btn-info">Edit</a>
-                                <a href="{{ url_for('delete_review', review_id=review._id) }}" type="button"
-                                    class="btn btn-danger">Delete</a>
-                                {% endif %}
-                            </div>
-                        </div>
-                        <div class="col-10">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                                    data-target="#c{{ review._id }}" aria-expanded="true"
-                                    aria-controls="c{{ review._id }}">
-                                    <strong>{{ review.country }}</strong> : {{ review.city }}
-                                </button>
-                            </h2>
-                        </div>
-                    </div>
+            <div class="col-6 cta-container h-100">
+                <div class="cta-header">
+                    <h1 class="text-center">
+                        Find the city<br>that fits you best
+                    </h1>
                 </div>
-                <div id="c{{ review._id }}" class="collapse" aria-labelledby="h{{ review._id }}"
-                    data-parent="#accordion">
-                    <div class="card-body">
-                        <strong>{{ review.name }} : <i class="fas fa-star text-warning"></i>
-                            {{ review.rating }}</strong>
-                        <p>{{ review.comment }}</p>
-                        <small>Added: {{ review.added_on }} {% if review.added_on != review.edited %}<br>Edited: {{
-                            review.edited }}{% endif %}</small>
-                    </div>
+                <p class="text-center">
+                    Finding the right destination shouldn't be hard.<br>From city to city,
+                    we make it easy to discover<br>
+                    and connect with the best ones for you.
+                </p>
+                <div class="cta-buttons">
+                    <h3 class="text-center">START HERE</h3>
+                    <a href="#search-container" type="button" class="btn btn-secondary">Find A Review</a>
+                    <a href="{{ url_for('add_review') }}" type="button" class="btn btn-secondary">Add A Review</a>
                 </div>
             </div>
         </div>
     </div>
-    {% endfor %}
-</div>
-{% else %}
+</section>
 
-<h3 class="text-center">No Results Found!</h3>
+<section id="reviews">
+    <div class="container-xl">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">
+                            All reviews
+                        </h3>
+                    </div>
+                    <div class="card-body" id="search-container">
+                        <form method="GET" class="d-flex justify-content-between align-items-center">
+                            <div class="w-100">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="search-icon"><i
+                                                class="fas fa-search"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Search..." aria-label="Search"
+                                        name="s" id="query" aria-describedby="search-icon" required>
+                                </div>
+                            </div>
+                            <a href="{{ url_for('get_reviews') }}" class="btn btn-danger">Reset</a>
+                            <button type="submit" class="btn btn-info">Search</button>
+                        </form>
+                    </div>
+                    <div class="card-body">
+                        {% if reviews|length > 0 %}
+                        <div class="accordion" id="accordion">
+                            {% for review in reviews %}
+                            <div class="card">
+                                <div class="card-header" id="h{{ review._id }}">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center caret-container">
+                                            <a type="button" data-toggle="collapse" data-target="#c{{ review._id }}"
+                                                aria-expanded="true" aria-controls="c{{ review._id }}"><i
+                                                    class="fas fa-caret-down fa-2x"></i></a>
+                                        </div>
+                                        {% if session.user == review.user %}
+                                        <div class="d-flex">
+                                            <a href="{{ url_for('edit_review', review_id=review._id) }}" type="button"
+                                                class="btn btn-info">Edit</a>
+                                            <a href="{{ url_for('delete_review', review_id=review._id) }}" type="button"
+                                                class="btn btn-danger">Delete</a>
+                                        </div>
+                                        {% endif %}
+                                        <div class="w-100">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-link btn-block text-left" type="button"
+                                                    data-toggle="collapse" data-target="#c{{ review._id }}"
+                                                    aria-expanded="true" aria-controls="c{{ review._id }}">
+                                                    <strong>{{ review.country }}</strong> : {{ review.city }}
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div class="review-rating">
+                                            <strong>{{ review.name }} : <i class="fas fa-star text-warning"></i>
+                                                {{ review.rating }}</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="c{{ review._id }}" class="collapse card-body"
+                                    aria-labelledby="h{{ review._id }}" data-parent="#accordion">
+                                    <p>{{ review.comment }}</p>
+                                    <small>Added: {{ review.added_on }} {% if review.added_on !=
+                                        review.edited %}<br>Edited:
+                                        {{
+                                        review.edited }}{% endif %}</small>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% else %}
 
-{% endif %}
+                        <h3 class="text-center">No Results Found!</h3>
+
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
 {% endblock %}

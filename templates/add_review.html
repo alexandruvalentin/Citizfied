@@ -1,53 +1,61 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="text-center">Add Review</h3>
-
-<form class="col card" method="POST" action="{{ url_for('add_review') }}">
-    <div class="card-body">
-        <div class="form-row">
-            <div class="col">
-                <select id="country" class="form-control" name="country" required>
-                    <option value="">Choose Country</option>
-                    {% for country in countries %}
-                    <option value="{{ country.alpha_2 }}">{{ country.name }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="col">
-                <select name="city" id="city" class="form-control">
-                    <option value="">Choose City</option>
-                </select>
-            </div>
-        </div>
-        <!-- rating -->
-        <div class="form-group">
-            <p><i class="fas fa-star"></i>
-                Rating</p>
-            <div class="range-slider">
-                <input name="rating" class="range-slider__range custom-range" type="range" value="1" min="1" max="5"
-                    step="0.5">
-                <span class="range-slider__value">0</span>
-            </div>
-        </div>
-        <!-- comment -->
-        <div class="form-group">
-            <i class="fas fa-pencil"></i>
-            <label for="comment">Write Your Review</label>
-            <textarea id="comment" name="comment" class="form-control" minlength="5" maxlength="500"
-                required></textarea>
-        </div>
-        <!-- submit -->
-        <div class="row">
-            <div class="col text-center">
-                <button type="submit" class="btn btn-primary">
-                    Add Review <i class="fas fa-check"></i>
-                </button>
-            </div>
+<section id="add-review" class="container-xl">
+    <div class="row">
+        <div class="col">
+            <form method="POST" action="{{ url_for('add_review') }}">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">
+                            Add Review
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="col">
+                                <select id="country" class="form-control" name="country" required>
+                                    <option value="">Choose Country</option>
+                                    {% for country in countries %}
+                                    <option value="{{ country.alpha_2 }}">{{ country.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select name="city" id="city" class="form-control">
+                                    <option value="">Choose City</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- rating -->
+                        <div class="form-group">
+                            <p><i class="fas fa-star"></i>
+                                Rating</p>
+                            <div class="range-slider">
+                                <input name="rating" class="range-slider__range custom-range" type="range" value="1"
+                                    min="1" max="5" step="0.5">
+                                <span class="range-slider__value">0</span>
+                            </div>
+                        </div>
+                        <!-- comment -->
+                        <div class="form-group">
+                            <i class="fas fa-pencil"></i>
+                            <label for="comment">Write Your Review</label>
+                            <textarea id="comment" name="comment" class="form-control" minlength="5" maxlength="500"
+                                required></textarea>
+                        </div>
+                    </div>
+                    <!-- submit -->
+                    <div class="card-footer text-center">
+                        <button type="submit" class="btn btn-primary">
+                            Add Review <i class="fas fa-check"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-</form>
-
+</section>
 {% endblock %}
 {% block scripts %}
 <script src="{{ url_for('static', filename='js/api.js')}}"></script>

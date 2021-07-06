@@ -1,59 +1,68 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="text-center">Add Review</h3>
-
-<form class="col card" method="POST" action="{{ url_for('edit_review', review_id=review._id) }}">
-    <div class="card-body">
-        <div class="form-row">
-            <div class="col">
-                <select id="country" class="form-control" name="country" required>
-                    <option value="">Choose Country</option>
-                    {% for country in countries %}
-                    {% if review.country == country.alpha_2 %}
-                    <option value="{{ country.alpha_2 }}" selected>{{ country.name }}</option>
-                    {% else %}
-                    <option value="{{ country.alpha_2 }}">{{ country.name }}</option>
-                    {% endif %}
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="col">
-                <select name="city" id="city" class="form-control">
-                    <option value="">Choose City</option>
-                    <option value="{{ review.city }}" selected>{{ review.city }}</option>
-                </select>
-            </div>
-        </div>
-        <!-- rating -->
-        <div class="form-group">
-            <p><i class="fas fa-star"></i>
-                Rating</p>
-            <div class="range-slider">
-                <input name="rating" class="range-slider__range custom-range" type="range" min="1" max="5" step="0.5"
-                    value="{{ review.rating }}">
-                <span class="range-slider__value"></span>
-            </div>
-        </div>
-        <!-- comment -->
-        <div class="form-group">
-            <i class="fas fa-pencil"></i>
-            <label for="comment">Write Your Review</label>
-            <textarea id="comment" name="comment" class="form-control" minlength="5" maxlength="500"
-                required>{{- review.comment -}}</textarea>
-        </div>
-        <!-- submit -->
-        <div class="row">
-            <div class="col text-center">
-                <a href="{{ url_for('get_reviews') }}" class="btn btn-danger">Cancel <i
-                        class="fas fa-times circle"></i></a>
-                <button type="submit" class="btn btn-primary">
-                    Edit Review <i class="fas fa-edit"></i>
-                </button>
+<section id="edit-review" class="container-xl">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">
+                        Edit Review
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('edit_review', review_id=review._id) }}">
+                        <div class="form-row">
+                            <div class="col">
+                                <select id="country" class="form-control" name="country" required>
+                                    <option value="">Choose Country</option>
+                                    {% for country in countries %}
+                                    {% if review.country == country.alpha_2 %}
+                                    <option value="{{ country.alpha_2 }}" selected>{{ country.name }}</option>
+                                    {% else %}
+                                    <option value="{{ country.alpha_2 }}">{{ country.name }}</option>
+                                    {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select name="city" id="city" class="form-control">
+                                    <option value="">Choose City</option>
+                                    <option value="{{ review.city }}" selected>{{ review.city }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- rating -->
+                        <div class="form-group">
+                            <p><i class="fas fa-star"></i>
+                                Rating</p>
+                            <div class="range-slider">
+                                <input name="rating" class="range-slider__range custom-range" type="range" min="1"
+                                    max="5" step="0.5" value="{{ review.rating }}">
+                                <span class="range-slider__value"></span>
+                            </div>
+                        </div>
+                        <!-- comment -->
+                        <div class="form-group">
+                            <i class="fas fa-pencil"></i>
+                            <label for="comment">Write Your Review</label>
+                            <textarea id="comment" name="comment" class="form-control" minlength="5" maxlength="500"
+                                required>{{- review.comment -}}</textarea>
+                        </div>
+                    </form>
+                </div>
+                <!-- submit -->
+                <div class="card-footer text-center">
+                    <a href="{{ url_for('get_reviews') }}" class="btn btn-danger">Cancel <i
+                            class="fas fa-times circle"></i></a>
+                    <button type="submit" class="btn btn-primary">
+                        Edit Review <i class="fas fa-edit"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</form>
+</section>
 
 {% endblock %}
 {% block scripts %}

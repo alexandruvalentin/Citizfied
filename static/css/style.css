@@ -84,3 +84,39 @@ body {
     -o-background-size: cover;
     background-size: cover;
 }
+
+.container-fluid {
+    padding: 0;
+    margin: 0;
+}
+
+#search_container {
+    max-width: 60%;
+}
+
+
+.hero-container {
+    height: 50vw;
+}
+
+.cta-header h1 {
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 60px 0px 10px 0px;
+    margin: 0;
+    font-size: 3rem;
+}
+
+.cta-buttons h3 {
+    padding: 60px 0px 10px 0px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.cta-buttons a {
+
+}
+
+.review-rating {
+    white-space: nowrap;
+}
