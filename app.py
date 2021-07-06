@@ -147,18 +147,26 @@ def logout():
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
     if request.method == "POST":
-        review = {
-            "country": request.form.get("country"),
-            "city": request.form.get("city"),
-            "rating": request.form.get("rating"),
-            "comment": request.form.get("comment"),
-            "user": session["user"],
-            "added_on": datetime.now().strftime('%B %d, %Y, %H:%M'),
-            "edited": datetime.now().strftime('%B %d, %Y, %H:%M')
-        }
-        mongo.db.reviews.insert_one(review)
-        flash("Review Successfully Added")
-        return redirect(url_for("get_reviews"))
+        # check if user already reviewed this city
+        existing_review = mongo.db.reviews.find_one(
+            {"user": session.get('user'),
+             "country": request.form.get("country"),
+             "city": request.form.get("city")})
+        if not existing_review:
+            review = {
+                "country": request.form.get("country"),
+                "city": request.form.get("city"),
+                "rating": request.form.get("rating"),
+                "comment": request.form.get("comment"),
+                "user": session["user"],
+                "added_on": datetime.now().strftime('%B %d, %Y, %H:%M'),
+                "edited": datetime.now().strftime('%B %d, %Y, %H:%M')
+            }
+            mongo.db.reviews.insert_one(review)
+            flash("Review Successfully Added")
+            return redirect(url_for("get_reviews"))
+        else:
+            flash("You have already reviewed this city!")
 
     countries = pycountry.countries
     return render_template(
