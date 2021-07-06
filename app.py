@@ -22,6 +22,11 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+@app.route('/images/<file>')
+def images(file):
+    return send_from_directory('images', file)
+
+
 @app.route('/', methods=["GET", "POST"])
 @app.route('/get_reviews', methods=["GET", "POST"])
 def get_reviews():

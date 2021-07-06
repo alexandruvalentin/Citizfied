@@ -1,5 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+
+
+.navbar-light .navbar-brand {
+    color: #90B494;
+    font-family: 'Otomanopee One', sans-serif;
+    text-transform: uppercase;
+    font-size: 2.6rem;
+    text-decoration: none;
+    padding-left: 6rem;
+}
+
+.navbar-light .navbar-brand:hover {
+    color: #718F94;
+    transition: all 0.4s ease;
+}
+
+.nav-item .nav-link {
+    padding: 0 3rem;
+    font-size: 1.3rem;
+    letter-spacing: 0.2px;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+    padding-right: 6rem;
+}
+
+.navbar-expand-lg {
+    background-color: #fff;
+    position: sticky;
+    height: 80px;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.15);
+}
+
 body {
-    background-color: palegoldenrod;
+    background-color: #fff;
+    font-family: 'Mukta', sans-serif;
 }
 
 .flashes h4 {
@@ -17,4 +61,26 @@ body {
 .fa-caret-down {
     padding: 0;
     margin-left: 10px;
+}
+
+.toast-container {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    top: 85px;
+    height: auto;
+    z-index: 9999;
+}
+
+.hero-container .image-container {
+    height: 60vh;
+}
+
+.image-container {
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }

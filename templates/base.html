@@ -19,15 +19,15 @@
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="{{ url_for('get_reviews') }}">Logo</a>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="{{ url_for('get_reviews') }}">Citizfied</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fas fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('get_reviews') }}">Home <span
                                 class="sr-only">(current)</span></a>
                     </li>
@@ -54,16 +54,13 @@
         </nav>
     </header>
 
-    <section class="container">
+    <section id="toasts">
         <!--flash messages-->
         {% with messages = get_flashed_messages() %}
         {% if messages %}
-        {% for message in messages %}
         <!-- Flexbox container for aligning the toasts -->
-        <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center" style="position: absolute;
-            top: 0;
-            height: auto;
-            z-index: 9999;">
+        <div aria-live="polite" aria-atomic="true" class="container-fluid toast-container">
+            {% for message in messages %}
             <!-- Then put toasts within -->
             <div class="toast" role="status" aria-live="polite" aria-atomic="true" data-delay="2500">
                 <div class="toast-header">
@@ -76,11 +73,22 @@
                     {{ message }}
                 </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
         {% endif %}
         {% endwith %}
     </section>
+
+    <div class="container-fluid hero-container">
+        <div class="row">
+            <div class="col-6 image-container"
+                style="background-image: url('{{ url_for('images', file='hero-image.jpg') }}');">
+            </div>
+            <div class="col-6">
+                hello
+            </div>
+        </div>
+    </div>
 
     <main class="container">
 
