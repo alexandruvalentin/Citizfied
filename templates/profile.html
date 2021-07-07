@@ -10,16 +10,16 @@
                         {{ user.username }}'s Profile
                     </h3>
                 </div>
-                <div class="card-body">
+                <div class="card-body display-name">
                     <h3>Personal details</h3>
-                    <form class="" method="POST">
+                    <form method="POST">
                         <label for="name">Display Name:</label>
                         <input type="text" name="name" id="name" value="{{ user.name }}">
                         <input type="submit" value="Update">
                     </form>
                 </div>
                 <div class="card-body">
-                    <h3>My reviews</h3>
+                    <h2>My Reviews</h2>
                     <div class="accordion" id="accordion">
                         {% for review in reviews %}
                         <div class="card">

@@ -299,3 +299,25 @@ section#hero {
 [data-toggle=collapse] {
     cursor: pointer;
 }
+
+.card-body.display-name h3 {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 2rem;
+    text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.30);
+}
+
+.card-body.display-name label {
+    margin-right: 8px;
+    font-size: 1.3rem;
+    text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.30);
+}
+
+.card-body.display-name input {
+    padding-left: 8px;
+    color: #000;
+    font-size: 1.3rem;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
