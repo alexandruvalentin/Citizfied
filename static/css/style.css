@@ -47,7 +47,8 @@
 }
 
 body {
-    background-color: #fff;
+    background-color: #BFC8AD;
+    color: #fff;
     font-family: 'Mukta', sans-serif;
 }
 
@@ -85,6 +86,17 @@ section#hero, section#toasts {
     margin-top: 0;
 }
 
+section#hero {
+    position: relative;
+    background-color: #718F94;
+    color: #fff;
+    text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.30);
+}
+
+.cta-container {
+    padding-bottom: 84px;
+}
+
 .image-container {
     background-repeat: no-repeat;
     background-position: center;
@@ -110,18 +122,71 @@ section#hero, section#toasts {
 .cta-header h1 {
     text-transform: uppercase;
     font-weight: 600;
-    padding: 60px 0px 10px 0px;
+    padding: 40px 0px 10px 0px;
     margin: 0;
     font-size: 3rem;
 }
 
 .cta-buttons h3 {
-    padding: 60px 0px 10px 0px;
-    font-size: 2rem;
+    padding: 15px 0px 10px 0px;
+    font-size: 2.3rem;
     font-weight: 600;
 }
 
+.btn-light {
+    font-size: 1.2rem;
+    text-shadow: none;
+    border: none;
+    background-color: #DBCFB0;
+    color: #565554;
+    border-radius: 0;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.btn-light:hover {
+    color: #fff;
+    background-color: #565554;
+    transition: all 0.3s ease;
+}
+
+.btn-default {
+    font-size: 1.2rem;
+    text-shadow: none;
+    border: none;
+    background-color: #90B494;
+    color: #fff;
+    border-radius: 0;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.btn-default:hover {
+    color: #fff;
+    background-color: #565554;
+    transition: all 0.3s ease;
+}
+
+.btn-dark {
+    font-size: 1.2rem;
+    text-shadow: none;
+    border: none;
+    background-color: #565554;
+    color: #fff;
+    border-radius: 0;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.btn-dark:hover {
+    color: #fff;
+    background-color: #90B494;
+    transition: all 0.3s ease;
+}
+
 .review-rating {
+    display: flex;
+    justify-content: flex-end;
     white-space: nowrap;
 }
 
@@ -135,4 +200,71 @@ section#hero, section#toasts {
     .hero-container {
         height: 50vh;
     }
+}
+
+/* CREDITS for the shape divider: https://www.shapedivider.app/ */
+.custom-shape-divider-bottom-1625645872 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1625645872 svg {
+    position: relative;
+    display: block;
+    width: calc(206% + 1.3px);
+    height: 84px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1625645872 .shape-fill {
+    fill: #BFC8AD;
+}
+
+
+.card {
+    border-radius: 0;
+    background-color: #718F94;
+    border: none;
+    outline: none;
+}
+
+.card-header h3 {
+    text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.30);
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.input-group-text {
+    background: transparent;
+    border: none;
+    font-size: 1.7rem;
+    color: #fff;
+    text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.30);
+}
+
+.form-control {
+    border: none;
+    border-radius: 0;
+}
+
+.form-control:focus, .form-control:active {
+    box-shadow: none;
+}
+
+.rating-stars {
+    overflow: hidden;
+    min-width: 104px;
+    width: 104px;
+    max-height: 18px;
+    margin-left: 5px;
+}
+.stars-container {
+    white-space: nowrap;
+    overflow: hidden;
 }

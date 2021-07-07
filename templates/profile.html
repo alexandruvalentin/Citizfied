@@ -48,8 +48,17 @@
                                         </h2>
                                     </div>
                                     <div class="review-rating">
-                                        <strong><i class="fas fa-star text-warning"></i>
-                                            {{ review.rating }}</strong>
+                                        <div class="rating-stars" data-toggle="tooltip" data-placement="top"
+                                            title="Rated {{ review.rating }}/5">
+                                            <div class="stars-container"
+                                                style="width: calc(100%/5*{{ review.rating }});">
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -20,7 +20,9 @@ var rangeSlider = function () {
 
 rangeSlider();
 
-$('.toast').toast('show')
+$('.toast').toast('show');
+
+$('[data-toggle="tooltip"]').tooltip();
 
 // document.querySelectorAll('[data-toggle=collapse]').forEach((el) => {
 //     el.addEventListener('click', () => {
