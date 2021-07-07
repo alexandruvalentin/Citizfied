@@ -7,6 +7,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 import pycountry
+import pymongo
 import requests
 import json
 if os.path.exists("env.py"):
@@ -27,19 +28,11 @@ def images(file):
     return send_from_directory('images', file)
 
 
-@app.route('/', methods=["GET", "POST"])
-@app.route('/get_reviews', methods=["GET", "POST"])
-def get_reviews():
-    if request.args.get('s'):
-        query = request.args.get('s')
-        reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
-        if not reviews:
-            country = pycountry.countries.get(name=query)
-            if country:
-                reviews = list(mongo.db.reviews.find(
-                    {"$text": {"$search": country.alpha_2}}))
-    else:
-        reviews = list(mongo.db.reviews.find().limit(5))
+def map_reviews(reviews):
+    """
+    Replace username with user's display name and
+    and country code with country name in the <reviews> parameter list
+    """
     for i, review in enumerate(reviews):
         user = mongo.db.users.find_one({"username": review.get('user')})
         country = pycountry.countries.get(alpha_2=review.get('country'))
@@ -47,8 +40,36 @@ def get_reviews():
             reviews[i]['name'] = user.get('name')
         if country:
             reviews[i]['country'] = country.name
+    return reviews
 
-    return render_template("reviews.html", reviews=reviews)
+
+@app.route('/', methods=["GET", "POST"])
+@app.route('/get_reviews', methods=["GET", "POST"])
+def get_reviews():
+    # Check if search url argument exists
+    if request.args.get('s'):
+        query = request.args.get('s')
+        # Search using the query
+        search_reviews = map_reviews(
+            list(mongo.db.reviews.find({"$text": {"$search": query}})))
+        recent_reviews = []
+        top_reviews = []
+        # If no results, search for the country code
+        if not search_reviews:
+            country = pycountry.countries.get(name=query)
+            if country:
+                search_reviews = map_reviews(list(mongo.db.reviews.find(
+                    {"$text": {"$search": country.alpha_2}})))
+    else:
+        # If no search, then get recent and top reviews
+        search_reviews = []
+        recent_reviews = map_reviews(list(mongo.db.reviews.find().limit(5)))
+        top_reviews = map_reviews(list(mongo.db.reviews.find().sort(
+            [("rating", pymongo.DESCENDING)])))
+
+    return render_template("reviews.html", search_reviews=search_reviews,
+                           recent_reviews=recent_reviews,
+                           top_reviews=top_reviews)
 
 
 @app.route("/register", methods=["GET", "POST"])

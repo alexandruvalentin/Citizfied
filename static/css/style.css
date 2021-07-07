@@ -52,6 +52,10 @@ body {
     font-family: 'Mukta', sans-serif;
 }
 
+main {
+    margin-bottom: 3rem;
+}
+
 .flashes h4 {
     line-height: 5;
 }
@@ -86,7 +90,7 @@ body {
 }
 
 section {
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 section#hero, section#toasts {
@@ -201,6 +205,10 @@ section#hero {
     box-shadow: none;
 }
 
+#reviews .card-body h5 {
+    margin: 1rem 0;
+}
+
 .review-rating {
     display: flex;
     justify-content: flex-end;
@@ -231,64 +239,64 @@ section#hero {
     position:absolute;
     left:0px;
     float:left;
-  }
-  
-  .parallax1 > use {
+}
+
+.parallax1 > use {
     animation: move-forever1 10s linear infinite;
     &:nth-child(1) {
-      animation-delay: -2s;
+        animation-delay: -2s;
     }
-  }
-  .parallax2 > use {
+}
+.parallax2 > use {
     animation: move-forever2 8s linear infinite;
     &:nth-child(1) {
-      animation-delay: -2s;
+        animation-delay: -2s;
     }
-  }
-  .parallax3 > use {
+}
+.parallax3 > use {
     animation: move-forever3 6s linear infinite;
     &:nth-child(1) {
-      animation-delay: -2s;
+        animation-delay: -2s;
     }
-  }
-  .parallax4 > use {
+}
+.parallax4 > use {
     animation: move-forever4 4s linear infinite;
     &:nth-child(1) {
-      animation-delay: -2s;
+        animation-delay: -2s;
     }
-  }
-  @keyframes move-forever1 {
+}
+@keyframes move-forever1 {
     0% {
-      transform: translate(85px, 0%);
+        transform: translate(85px, 0%);
     }
     100% {
-      transform: translate(-90px, 0%);
+        transform: translate(-90px, 0%);
     }
-  }
-  @keyframes move-forever2 {
+}
+@keyframes move-forever2 {
     0% {
-      transform: translate(-90px, 0%);
+        transform: translate(-90px, 0%);
     }
     100% {
-      transform: translate(85px, 0%);
+        transform: translate(85px, 0%);
     }
-  }
-  @keyframes move-forever3 {
+}
+@keyframes move-forever3 {
     0% {
-      transform: translate(85px, 0%);
+        transform: translate(85px, 0%);
     }
     100% {
-      transform: translate(-90px, 0%);
+        transform: translate(-90px, 0%);
     }
-  }
-  @keyframes move-forever4 {
+}
+@keyframes move-forever4 {
     0% {
-      transform: translate(-90px, 0%);
+        transform: translate(-90px, 0%);
     }
     100% {
-      transform: translate(85px, 0%);
+        transform: translate(85px, 0%);
     }
-  }
+}
 
 
 .card {
@@ -390,7 +398,7 @@ a:hover {
 }
 
 footer {
-    margin-top: 2rem;
+    margin-top: auto;
 }
 .footer-divider {
     background-position: bottom left;
@@ -401,8 +409,9 @@ footer {
     bottom: -2px;
 }
 .footer-content {
-    min-height: 100px;
+    padding: 1rem 0;
     background-color: #565554;
+    color: #DBCFB0;
 }
 
 @media screen and (max-width: 576px) {

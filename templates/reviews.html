@@ -57,7 +57,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h3 class="text-center">
-                            All reviews
+                            Reviews
                         </h3>
                     </div>
                     <div class="card-body" id="search-container">
@@ -77,66 +77,137 @@
                         </form>
                     </div>
                     <div class="card-body">
-                        {% if reviews|length > 0 %}
-                        <div class="accordion" id="accordion">
-                            {% for review in reviews %}
-                            <div class="card">
-                                <div class="card-header" id="h{{ review._id }}">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <i class="review-caret fas fa-angle-right fa-2x" data-toggle="collapse"
-                                            data-target="#c{{ review._id }}" aria-expanded="true"
-                                            aria-controls="c{{ review._id }}"></i>
-                                        <div class="w-100" data-toggle="collapse" data-target="#c{{ review._id }}"
-                                            aria-expanded="true" aria-controls="c{{ review._id }}">
-                                            <h2 class="mb-0">
-                                                <button class="btn btn-link btn-block text-left" type="button"
-                                                    data-toggle="collapse" data-target="#c{{ review._id }}"
-                                                    aria-expanded="true" aria-controls="c{{ review._id }}">
-                                                    <strong>{{ review.country }}</strong> : {{ review.city }}
-                                                </button>
-                                            </h2>
-                                        </div>
-                                        <div class="review-rating" data-toggle="collapse"
-                                            data-target="#c{{ review._id }}" aria-expanded="true"
-                                            aria-controls="c{{ review._id }}">
-                                            <strong>{{ review.name }}: </strong>
-                                            <div class="rating-stars" data-toggle="tooltip" data-placement="top"
-                                                title="Rated {{ review.rating }}/5">
-                                                <div class="stars-container"
-                                                    style="width: calc(100%/5*{{ review.rating }});">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
+                        <!-- Check if search url argument exists, display subtitle and set show_reviews to search_reviews list -->
+                        {% if request.args.get('s') %}
+                            <h5>Showing results for: <strong>{{ request.args.get('s') }}</strong></h5>
+                            {% set show_reviews = search_reviews %}
+                        <!-- Otherwise, set show_reviews to recent reviews and set show_top_reviews -->
+                        {% else %}
+                            {% set show_reviews = recent_reviews %}
+                            {% set show_top_reviews = top_reviews %}
+                        {% endif %}
+                        <!-- Check if there are any reviews -->
+                        {% if show_reviews %}
+                            <!-- Check if show_top_reviews is set (no search), and display top 5 reviews accordion -->
+                            {% if show_top_reviews %}
+                            <h5>Highest rated:</h5>
+                            <div class="accordion" id="top-reviews">
+                                {% for review in show_top_reviews %}
+                                <div class="card">
+                                    <div class="card-header" id="h{{ review._id }}h">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <i class="review-caret fas fa-angle-right fa-2x" data-toggle="collapse"
+                                                data-target="#c{{ review._id }}h" aria-expanded="true"
+                                                aria-controls="c{{ review._id }}h"></i>
+                                            <div class="w-100" data-toggle="collapse" data-target="#c{{ review._id }}h"
+                                                aria-expanded="true" aria-controls="c{{ review._id }}h">
+                                                <h2 class="mb-0">
+                                                    <button class="btn btn-link btn-block text-left" type="button"
+                                                        data-toggle="collapse" data-target="#c{{ review._id }}h"
+                                                        aria-expanded="true" aria-controls="c{{ review._id }}h">
+                                                        <strong>{{ review.country }}</strong> : {{ review.city }}
+                                                    </button>
+                                                </h2>
+                                            </div>
+                                            <div class="review-rating" data-toggle="collapse"
+                                                data-target="#c{{ review._id }}h" aria-expanded="true"
+                                                aria-controls="c{{ review._id }}h">
+                                                <strong>{{ review.name }}: </strong>
+                                                <div class="rating-stars" data-toggle="tooltip" data-placement="top"
+                                                    title="Rated {{ review.rating }}/5">
+                                                    <div class="stars-container"
+                                                        style="width: calc(100%/5*{{ review.rating }});">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
                                                 </div>
                                             </div>
+                                            {% if session.user == review.user %}
+                                            <div class="d-flex">
+                                                <a href="{{ url_for('edit_review', review_id=review._id) }}" type="button"
+                                                    class="btn btn-info btn mx-2"><i class="fas fa-pen"></i></a>
+                                                <a href="{{ url_for('delete_review', review_id=review._id) }}" type="button"
+                                                    class="btn btn-danger btn"><i class="fas fa-trash"></i></a>
+                                            </div>
+                                            {% endif %}
                                         </div>
-                                        {% if session.user == review.user %}
-                                        <div class="d-flex">
-                                            <a href="{{ url_for('edit_review', review_id=review._id) }}" type="button"
-                                                class="btn btn-info btn mx-2"><i class="fas fa-pen"></i></a>
-                                            <a href="{{ url_for('delete_review', review_id=review._id) }}" type="button"
-                                                class="btn btn-danger btn"><i class="fas fa-trash"></i></a>
-                                        </div>
-                                        {% endif %}
+                                    </div>
+                                    <div id="c{{ review._id }}h" class="collapse card-body review-collapse"
+                                        aria-labelledby="h{{ review._id }}h" data-parent="#top-reviews">
+                                        <p>{{ review.comment }}</p>
+                                        <small class="muted">Added: {{ review.added_on }} {% if review.added_on !=
+                                            review.edited %}<br>Edited:
+                                            {{
+                                            review.edited }}{% endif %}</small>
                                     </div>
                                 </div>
-                                <div id="c{{ review._id }}" class="collapse card-body review-collapse"
-                                    aria-labelledby="h{{ review._id }}" data-parent="#accordion">
-                                    <p>{{ review.comment }}</p>
-                                    <small class="muted">Added: {{ review.added_on }} {% if review.added_on !=
-                                        review.edited %}<br>Edited:
-                                        {{
-                                        review.edited }}{% endif %}</small>
-                                </div>
+                                {% endfor %}
                             </div>
-                            {% endfor %}
-                        </div>
+                            {% endif %}
+                            <!-- Display previously set show_reviews accordion, search or recent -->
+                            <div class="accordion" id="accordion">
+                                {% if not request.args.get('s') %}
+                                    <h5>Most recent:</h5>
+                                {% endif %}
+                                {% for review in show_reviews %}
+                                <div class="card">
+                                    <div class="card-header" id="h{{ review._id }}">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <i class="review-caret fas fa-angle-right fa-2x" data-toggle="collapse"
+                                                data-target="#c{{ review._id }}" aria-expanded="true"
+                                                aria-controls="c{{ review._id }}"></i>
+                                            <div class="w-100" data-toggle="collapse" data-target="#c{{ review._id }}"
+                                                aria-expanded="true" aria-controls="c{{ review._id }}">
+                                                <h2 class="mb-0">
+                                                    <button class="btn btn-link btn-block text-left" type="button"
+                                                        data-toggle="collapse" data-target="#c{{ review._id }}"
+                                                        aria-expanded="true" aria-controls="c{{ review._id }}">
+                                                        <strong>{{ review.country }}</strong> : {{ review.city }}
+                                                    </button>
+                                                </h2>
+                                            </div>
+                                            <div class="review-rating" data-toggle="collapse"
+                                                data-target="#c{{ review._id }}" aria-expanded="true"
+                                                aria-controls="c{{ review._id }}">
+                                                <strong>{{ review.name }}: </strong>
+                                                <div class="rating-stars" data-toggle="tooltip" data-placement="top"
+                                                    title="Rated {{ review.rating }}/5">
+                                                    <div class="stars-container"
+                                                        style="width: calc(100%/5*{{ review.rating }});">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% if session.user == review.user %}
+                                            <div class="d-flex">
+                                                <a href="{{ url_for('edit_review', review_id=review._id) }}" type="button"
+                                                    class="btn btn-info btn mx-2"><i class="fas fa-pen"></i></a>
+                                                <a href="{{ url_for('delete_review', review_id=review._id) }}" type="button"
+                                                    class="btn btn-danger btn"><i class="fas fa-trash"></i></a>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div id="c{{ review._id }}" class="collapse card-body review-collapse"
+                                        aria-labelledby="h{{ review._id }}" data-parent="#accordion">
+                                        <p>{{ review.comment }}</p>
+                                        <small class="muted">Added: {{ review.added_on }} {% if review.added_on !=
+                                            review.edited %}<br>Edited:
+                                            {{
+                                            review.edited }}{% endif %}</small>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
                         {% else %}
-
-                        <h3 class="text-center">No Results Found!</h3>
-
+                            <h3 class="text-center">No Results Found!</h3>
                         {% endif %}
                     </div>
                 </div>
