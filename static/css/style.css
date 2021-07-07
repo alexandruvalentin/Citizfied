@@ -8,7 +8,6 @@
     text-transform: uppercase;
     font-size: 2.6rem;
     text-decoration: none;
-    padding-left: 6rem;
 }
 
 .navbar-light .navbar-brand:hover {
@@ -44,6 +43,13 @@
     top: 0;
     z-index: 999;
     box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand i {
+    position: relative;
+    margin-right: 2px;
+    bottom: 5px;
+    font-size: 2.7rem;
 }
 
 body {
@@ -115,6 +121,7 @@ section#hero {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    min-height: 150px;
 }
 
 .container-fluid {
@@ -127,7 +134,7 @@ section#hero {
 }
 
 .hero-container {
-    height: 30vh;
+    height: 60vh;
 }
 
 .cta-header h1 {
@@ -217,7 +224,7 @@ section#hero {
 
 @media screen and (min-width: 576px) {
     .hero-container {
-        height: 40vh;
+        height: 50vh;
     }
 }
 
@@ -378,16 +385,56 @@ section#hero {
     box-shadow: none;
 }
 
-#login .card-body label, #register .card-body label {
+#login .card-body label, #register .card-body label, #add-review .card-body label {
     font-size: 1.7rem;
     text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.30);
 }
 
-#login .card-body i, #register .card-body i {
+#login .card-body i, #register .card-body i, #add-review .form-group i, #edit-review .form-group i {
     font-size: 1.5rem;
     margin-right: 5px;
     text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.30);
 }
+
+#add-review .form-group p, #edit-review .form-group p {
+    margin-top: 1rem;
+    font-size: 1.7rem;
+}
+
+/* CREDITS for slider: https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #ebf2f3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+  }
+  
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    width: 20px;
+    height: 35px;
+    background: #565554;
+    cursor: pointer;
+  }
+
+  .slider::-moz-range-thumb {
+    width: 20px; /* Set a specific slider handle width */
+    height: 35px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
 
 a {
     color: #DBCFB0;
@@ -417,5 +464,24 @@ footer {
 @media screen and (max-width: 576px) {
     .footer-divider {
         height: 70px;
+    }
+    .input-group-text {
+        border: none;
+        font-size: 1.7rem;
+        background: white;
+        border-radius: 0;
+        color: #565554;
+    }
+    .search-buttons {
+        margin-left: -4px;
+        margin-top: 2px;
+    }
+    .search-buttons .btn:first-child {
+        margin-right: 2px;
+        margin-left: 0;
+    }
+    .search-buttons .btn:last-child {
+        margin-right: 0;
+        margin-left: 2px;
     }
 }

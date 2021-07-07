@@ -19,7 +19,8 @@
 <body class="d-flex flex-column h-100">
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="{{ url_for('get_reviews') }}">Citizfied</a>
+            <div class="container-xl">
+            <a class="navbar-brand" href="{{ url_for('get_reviews') }}">Cit<i class="fas fa-monument"></i>zfied</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fas fa-bars"></span>
@@ -49,6 +50,7 @@
                     </li>
                     {% endif %}
                 </ul>
+            </div>
             </div>
         </nav>
     </header>

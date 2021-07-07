@@ -3,10 +3,10 @@
 <section id="hero">
     <div class="container-fluid hero-container">
         <div class="row h-100 mx-0">
-            <div class="col-6 image-container"
+            <div class="col-12 col-sm-6 image-container"
                 style="background-image: url('{{ url_for('images', file='hero-image.jpg') }}');">
             </div>
-            <div class="col-6 cta-container h-100">
+            <div class="col-12 col-sm-6 cta-container h-100">
                 <div class="cta-header">
                     <h1 class="text-center">
                         Find the city<br>that fits you best
@@ -61,7 +61,7 @@
                         </h3>
                     </div>
                     <div class="card-body" id="search-container">
-                        <form method="GET" class="d-flex justify-content-between align-items-center">
+                        <form method="GET" class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
                             <div class="w-100 mr-1">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -72,8 +72,10 @@
                                         name="s" id="query" aria-describedby="search-icon" required>
                                 </div>
                             </div>
-                            <a href="{{ url_for('get_reviews') }}" class="btn btn-dark">Reset</a>
-                            <button type="submit" class="btn btn-light">Search</button>
+                            <div class="search-buttons d-flex flex-row w-100">
+                                <a href="{{ url_for('get_reviews') }}" class="btn btn-dark w-50">Reset</a>
+                                <button type="submit" class="btn btn-light w-50">Search</button>
+                            </div>
                         </form>
                     </div>
                     <div class="card-body">
