@@ -73,7 +73,7 @@
                             <div class="card">
                                 <div class="card-header" id="h{{ review._id }}">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <i class="review-caret fas fa-caret-down fa-2x" data-toggle="collapse"
+                                        <i class="review-caret fas fa-angle-right fa-2x" data-toggle="collapse"
                                             data-target="#c{{ review._id }}" aria-expanded="true"
                                             aria-controls="c{{ review._id }}"></i>
                                         <div class="w-100" data-toggle="collapse" data-target="#c{{ review._id }}"
@@ -112,7 +112,7 @@
                                         {% endif %}
                                     </div>
                                 </div>
-                                <div id="c{{ review._id }}" class="collapse card-body"
+                                <div id="c{{ review._id }}" class="collapse card-body review-collapse"
                                     aria-labelledby="h{{ review._id }}" data-parent="#accordion">
                                     <p>{{ review.comment }}</p>
                                     <small class="muted">Added: {{ review.added_on }} {% if review.added_on !=

@@ -65,7 +65,15 @@ body {
 
 .review-caret {
     padding: 0;
-    margin-left: 10px;
+    background-color: rgba(0,0,0,0.4);
+    color: transparent;
+    text-shadow: 0px 2px 3px #8fb0b6;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-transition: -webkit-transform .2s ease-in-out;
+    -ms-transition: -ms-transform .2s ease-in-out;
+    transition: transform .2s ease-in-out; 
 }
 
 .toast-container {

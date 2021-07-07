@@ -41,6 +41,15 @@ $('[data-toggle="tooltip"]').tooltip();
 //     })
 // });
 
-// $('#myCollapsible').on('shown.bs.collapse', function () {
-//     // do something...
-// })
+
+$('.review-collapse').on('show.bs.collapse', function () {
+    var label_elem = document.getElementById($(this).attr('aria-labelledby')).querySelector('.review-caret');
+    $(label_elem).css({ 'transform': 'rotate(90deg)' });
+    // $(label_elem).toggleClass('fa-angle-right');
+    // $(label_elem).toggleClass('fa-angle-down');
+});
+
+$('.review-collapse').on('hide.bs.collapse', function () {
+    var label_elem = document.getElementById($(this).attr('aria-labelledby')).querySelector('.review-caret');
+    $(label_elem).css({ 'transform': 'rotate(0deg)' })
+});
