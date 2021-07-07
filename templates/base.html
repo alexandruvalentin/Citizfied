@@ -84,8 +84,22 @@
         {% block content %}
         {% endblock %}
 
+
     </main>
 
+    <footer id="footer">
+        <div class="footer-divider" style="background-image: url('{{ url_for('images', file='skyline.svg') }}');">
+        </div>
+        <div class="footer-content">
+            <div class="container-xl">
+                <div class="row">
+                    <div class="col-12 col-md-4">disclaimer</div>
+                    <div class="col-12 col-md-4">search</div>
+                    <div class="col-12 col-md-4">buttons</div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
