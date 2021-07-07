@@ -56,15 +56,14 @@ body {
     line-height: 5;
 }
 
-.btn.btn-info {
+.btn {
+    font-size: 1.2rem;
     margin: 2px;
+    border-radius: 0;
+    border: none;
 }
 
-.btn.btn-danger {
-    margin: 2px;
-}
-
-.fa-caret-down {
+.review-caret {
     padding: 0;
     margin-left: 10px;
 }
@@ -134,12 +133,9 @@ section#hero {
 }
 
 .btn-light {
-    font-size: 1.2rem;
     text-shadow: none;
-    border: none;
     background-color: #DBCFB0;
     color: #565554;
-    border-radius: 0;
     margin-right: 5px;
     margin-left: 5px;
 }
@@ -151,12 +147,9 @@ section#hero {
 }
 
 .btn-default {
-    font-size: 1.2rem;
     text-shadow: none;
-    border: none;
     background-color: #90B494;
     color: #fff;
-    border-radius: 0;
     margin-right: 5px;
     margin-left: 5px;
 }
@@ -168,12 +161,9 @@ section#hero {
 }
 
 .btn-dark {
-    font-size: 1.2rem;
     text-shadow: none;
-    border: none;
     background-color: #565554;
     color: #fff;
-    border-radius: 0;
     margin-right: 5px;
     margin-left: 5px;
 }
@@ -182,6 +172,25 @@ section#hero {
     color: #fff;
     background-color: #90B494;
     transition: all 0.3s ease;
+}
+
+.btn-danger {
+    background-color: #ce5a73;
+}
+
+.btn-info {
+    background-color: #74b2d6;
+}
+
+.btn-link {
+    color: #fff;
+    text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.30);
+    font-size: 1.3rem;
+}
+
+.btn-link:hover, .btn-link:active, .btn-link:focus {
+    color: #fff;
+    box-shadow: none;
 }
 
 .review-rating {
@@ -251,6 +260,7 @@ section#hero {
 .form-control {
     border: none;
     border-radius: 0;
+    font-size: 1.1rem;
 }
 
 .form-control:focus, .form-control:active {
@@ -263,8 +273,21 @@ section#hero {
     width: 104px;
     max-height: 18px;
     margin-left: 5px;
+    color: #DBCFB0;
 }
 .stars-container {
     white-space: nowrap;
     overflow: hidden;
+}
+
+.muted {
+    color: #b9d9de;
+}
+
+#accordion .card-body {
+    font-size: 1.3rem;
+}
+
+[data-toggle=collapse] {
+    cursor: pointer;
 }
