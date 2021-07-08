@@ -338,6 +338,10 @@ section#hero {
     box-shadow: none;
 }
 
+textarea.form-control {
+    height: 120px;
+}
+
 .review-rating {
     height: 1.5rem;
 }
@@ -511,4 +515,15 @@ footer {
     .accordion>.card:not(:last-of-type) {
         border-bottom: 1px solid rgba(0,0,0,.125);
     }
+}
+
+.toast-header {
+    background-color: #ebf2f3;
+    border-radius: 0;
+    font-size: 1.2rem;
+}
+.toast {
+    background-color: #565554;
+    border-radius: 0;
+    font-size: 1rem;
 }
