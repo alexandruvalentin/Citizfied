@@ -222,12 +222,6 @@ section#hero {
     white-space: nowrap;
 }
 
-@media screen and (min-width: 576px) {
-    .hero-container {
-        height: 50vh;
-    }
-}
-
 @media screen and (min-width: 768px) {
     .hero-container {
         height: 50vh;
@@ -483,7 +477,48 @@ footer {
     color: #DBCFB0;
 }
 
+
+@media screen and (max-width: 992px) {
+    .hero-container h1 {
+        font-size: 2.5rem;
+    }
+    .cta-buttons h3 {
+        font-size: 2.2rem;
+        margin: 0;
+    }
+    .hero-container p {
+        font-size: 1rem;
+    }
+    .btn {
+        font-size: 1rem;
+    }
+    .content h3 {
+        font-size: 2.5rem;
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .review-rating {
+        padding-left: .8rem;
+    }
+    .accordion>.card:not(:last-of-type) {
+        border-bottom: 1px solid rgba(0,0,0,.125);
+    }
+}
+
+
 @media screen and (max-width: 576px) {
+    .navbar-light .navbar-brand {
+        font-size: 2rem;
+    }
+    .navbar-light .navbar-brand i {
+        font-size: 2.3rem;
+    }
+    .hero-container {
+        height: 50vh;
+    }
     .footer-divider {
         height: 70px;
     }
@@ -507,11 +542,12 @@ footer {
         margin-left: 2px;
     }
     .hero-container h1 {
+        padding: 20px 0 10px 0;
         font-size: 1.5rem;
     }
     .cta-buttons h3 {
         font-size: 1.2rem;
-        margin: 0;
+        padding: 5px 0 5px 0;
     }
     .hero-container p {
         font-size: .8rem;
@@ -524,14 +560,6 @@ footer {
     }
 }
 
-@media screen and (max-width: 768px) {
-    .review-rating {
-        padding-left: .8rem;
-    }
-    .accordion>.card:not(:last-of-type) {
-        border-bottom: 1px solid rgba(0,0,0,.125);
-    }
-}
 
 .toast-header {
     background-color: #ebf2f3;
