@@ -188,9 +188,6 @@ def add_review():
             return redirect(url_for("get_reviews"))
         else:
             flash("You have already reviewed this city!")
-    else:
-        flash("Please log in")
-        return redirect(url_for("login"))
 
     countries = pycountry.countries
     return render_template(
