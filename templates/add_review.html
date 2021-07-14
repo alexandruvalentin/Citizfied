@@ -14,7 +14,7 @@
                     <div class="card-body">
                         <div class="form-row">
                             <div class="col">
-                                <select id="country" class="form-control" name="country">
+                                <select id="country" class="form-control" name="country" required>
                                     <option value="">Choose Country</option>
                                     {% for country in countries %}
                                     <option value="{{ country.alpha_2 }}">{{ country.name }}</option>
@@ -60,8 +60,8 @@
                         <div class="form-group">
                             <i class="fas fa-pencil"></i>
                             <label for="comment">Write Your Review</label>
-                            <textarea id="comment" name="comment" class="form-control" maxlength="500"
-                            ></textarea>
+                            <textarea id="comment" name="comment" class="form-control" minlength="5" maxlength="500"
+                                required></textarea>
                         </div>
                     </div>
                     <!-- submit -->

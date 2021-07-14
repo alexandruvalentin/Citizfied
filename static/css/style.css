@@ -575,6 +575,7 @@ footer {
     font-size: 1rem;
     flex-basis: 0;
     width: 100%;
+    min-width: 300px;
 }
 
 .navbar-light .navbar-toggler {
@@ -585,3 +586,17 @@ footer {
     color: #565554;
 }
 
+.jconfirm-title {
+    color:#565554;
+}
+
+.jconfirm-content {
+    color:#576f73;
+    overflow: visible !important;
+    display: block;
+}
+
+.jconfirm .jconfirm-box .jconfirm-buttons button,
+.jconfirm.jconfirm-white .jconfirm-box, .jconfirm.jconfirm-light .jconfirm-box {
+    border-radius: 0;
+}

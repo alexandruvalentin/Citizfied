@@ -34,3 +34,20 @@ $('.review-collapse').on('hide.bs.collapse', function () {
     var label_elem = document.getElementById($(this).attr('aria-labelledby')).querySelector('.review-caret');
     $(label_elem).css({ 'transform': 'rotate(0deg)' })
 });
+
+$('.delete').confirm({
+    title: "Are you sure?",
+    content: 'Please confirm...',
+    buttons: {
+        delete: {
+            text: 'Delete',
+            btnClass: 'btn-danger',
+            action: function () {
+                location.href = this.$target.attr('href');
+            }
+        },
+        close: {
+            btnClass: 'btn-info'
+        }
+    }
+});

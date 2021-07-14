@@ -10,6 +10,7 @@ import pycountry
 import pymongo
 import requests
 import json
+import numpy as np
 if os.path.exists("env.py"):
     import env
 
@@ -182,14 +183,14 @@ def add_review():
         if request.method == "POST":
             if not request.form.get("country") or not request.form.get("city") or \
                     len(request.form.get("comment")) not in range(5, 500) or \
-                    float(request.form.get("rating")) not in range(1, 5):
+                    float(request.form.get("rating")) not in np.arange(1, 5.5, 0.5):
                 if not request.form.get("country"):
                     flash("Please select a country!")
                 if not request.form.get("city"):
                     flash("Please select a city!")
-                if len(request.form.get("comment")) not in range(5, 500):
+                if len(request.form.get("comment")) not in range(5, 501):
                     flash("Your review should be 5-500 characters!")
-                if float(request.form.get("rating")) not in range(1, 5):
+                if float(request.form.get("rating")) not in np.arange(1, 5.5, 0.5):
                     flash("Rating invalid!")
             else:
                 # check if user already reviewed this city
