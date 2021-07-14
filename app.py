@@ -176,31 +176,49 @@ def logout():
 
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
-    if request.method == "POST":
-        # check if user already reviewed this city
-        existing_review = mongo.db.reviews.find_one(
-            {"user": session.get('user'),
-             "country": request.form.get("country"),
-             "city": request.form.get("city")})
-        if not existing_review:
-            review = {
-                "country": request.form.get("country"),
-                "city": request.form.get("city"),
-                "rating": request.form.get("rating"),
-                "comment": request.form.get("comment"),
-                "user": session["user"],
-                "added_on": datetime.now().strftime('%B %d, %Y, %H:%M'),
-                "edited": datetime.now().strftime('%B %d, %Y, %H:%M')
-            }
-            mongo.db.reviews.insert_one(review)
-            flash("Review Successfully Added")
-            return redirect(url_for("get_reviews"))
-        else:
-            flash("You have already reviewed this city!")
+    user = mongo.db.users.find_one(
+        {"username": session.get('user')})
+    if user:
+        if request.method == "POST":
+            if not request.form.get("country") or not request.form.get("city") or \
+                    len(request.form.get("comment")) not in range(5, 500) or \
+                    float(request.form.get("rating")) not in range(1, 5):
+                if not request.form.get("country"):
+                    flash("Please select a country!")
+                if not request.form.get("city"):
+                    flash("Please select a city!")
+                if len(request.form.get("comment")) not in range(5, 500):
+                    flash("Your review should be 5-500 characters!")
+                if float(request.form.get("rating")) not in range(1, 5):
+                    flash("Rating invalid!")
+            else:
+                # check if user already reviewed this city
+                existing_review = mongo.db.reviews.find_one(
+                    {"user": session.get('user'),
+                     "country": request.form.get("country"),
+                     "city": request.form.get("city")})
+                if not existing_review:
+                    review = {
+                        "country": request.form.get("country"),
+                        "city": request.form.get("city"),
+                        "rating": request.form.get("rating"),
+                        "comment": request.form.get("comment"),
+                        "user": session["user"],
+                        "added_on": datetime.now().strftime('%B %d, %Y, %H:%M'),
+                        "edited": datetime.now().strftime('%B %d, %Y, %H:%M')
+                    }
+                    mongo.db.reviews.insert_one(review)
+                    flash("Review Successfully Added")
+                    return redirect(url_for("get_reviews"))
+                else:
+                    flash("You have already reviewed this city!")
 
-    countries = pycountry.countries
-    return render_template(
-        "add_review.html", countries=countries)
+        countries = pycountry.countries
+        return render_template(
+            "add_review.html", countries=countries)
+    else:
+        flash("Please log in")
+        return redirect(url_for("login"))
 
 
 @app.route('/countries')
