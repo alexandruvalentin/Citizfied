@@ -96,12 +96,12 @@
                             <div class="accordion" id="top-reviews">
                                 {% for review in show_top_reviews %}
                                 <div class="card">
-                                    <div class="card-header d-flex justify-content-between align-items-center" id="h{{ review._id }}h">
-                                        <i class="review-caret fas fa-angle-right fa-2x" data-toggle="collapse"
-                                                data-target="#c{{ review._id }}h" aria-expanded="true"
-                                                aria-controls="c{{ review._id }}h"></i>
-                                        <div class="d-flex justify-content-center align-items-start justify-content-md-between align-items-md-center flex-column flex-md-row w-100">
-                                            <div class="w-100 order-1 order-md-0" data-toggle="collapse" data-target="#c{{ review._id }}h"
+                                    <div class="card-header d-flex justify-content-between align-items-start align-items-sm-center flex-column flex-sm-row" id="h{{ review._id }}h">
+                                        <div class="d-flex justify-content-center align-items-start flex-row w-100 order-1 order-sm-0">
+                                            <i class="review-caret fas fa-angle-right fa-2x" data-toggle="collapse"
+                                                    data-target="#c{{ review._id }}h" aria-expanded="true"
+                                                    aria-controls="c{{ review._id }}h"></i>
+                                            <div class="w-100" data-toggle="collapse" data-target="#c{{ review._id }}h"
                                                 aria-expanded="true" aria-controls="c{{ review._id }}h">
                                                 <h2 class="mb-0">
                                                     <button class="btn btn-link btn-block text-left" type="button"
@@ -111,32 +111,32 @@
                                                     </button>
                                                 </h2>
                                             </div>
-                                            <div class="review-rating order-0 order-md-1" data-toggle="collapse"
-                                                data-target="#c{{ review._id }}h" aria-expanded="true"
-                                                aria-controls="c{{ review._id }}h">
-                                                {{ review.name }}:
-                                                <div class="rating-stars" data-toggle="tooltip" data-placement="top"
-                                                    title="Rated {{ review.rating }}/5">
-                                                    <div class="stars-container"
-                                                        style="width: calc(100%/5*{{ review.rating }});">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </div>
-                                                    <div class="empty-stars">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </div>
+                                        </div>
+                                        <div class="review-rating order-0 order-sm-1" data-toggle="collapse"
+                                            data-target="#c{{ review._id }}h" aria-expanded="true"
+                                            aria-controls="c{{ review._id }}h">
+                                            <span>{{ review.name }}: </span>
+                                            <div class="rating-stars" data-toggle="tooltip" data-placement="top"
+                                                title="Rated {{ review.rating }}/5">
+                                                <div class="stars-container"
+                                                    style="width: calc(100%/5*{{ review.rating }});">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="empty-stars">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
                                                 </div>
                                             </div>
                                         </div>
                                         {% if session.user == review.user %}
-                                            <div class="d-flex flex-column flex-md-row ml-2">
+                                            <div class="d-flex flex-row ml-2 order-2">
                                                 <a href="{{ url_for('edit_review', review_id=review._id) }}" type="button"
                                                     class="btn btn-info btn"><i class="fas fa-pen"></i></a>
                                                 <a href="{{ url_for('delete_review', review_id=review._id) }}" type="button"
@@ -163,11 +163,11 @@
                                 {% endif %}
                                 {% for review in show_reviews %}
                                 <div class="card">
-                                     <div class="card-header d-flex justify-content-between align-items-center" id="h{{ review._id }}">
-                                        <i class="review-caret fas fa-angle-right fa-2x" data-toggle="collapse"
-                                                data-target="#c{{ review._id }}" aria-expanded="true"
-                                                aria-controls="c{{ review._id }}"></i>
-                                        <div class="d-flex justify-content-center align-items-start justify-content-md-between align-items-md-center flex-column flex-md-row w-100">
+                                    <div class="card-header d-flex justify-content-between align-items-start align-items-sm-center flex-column flex-sm-row" id="h{{ review._id }}">
+                                        <div class="d-flex justify-content-center align-items-start flex-row w-100 order-1 order-sm-0">
+                                            <i class="review-caret fas fa-angle-right fa-2x" data-toggle="collapse"
+                                                    data-target="#c{{ review._id }}" aria-expanded="true"
+                                                    aria-controls="c{{ review._id }}"></i>
                                             <div class="w-100" data-toggle="collapse" data-target="#c{{ review._id }}"
                                                 aria-expanded="true" aria-controls="c{{ review._id }}">
                                                 <h2 class="mb-0">
@@ -178,32 +178,32 @@
                                                     </button>
                                                 </h2>
                                             </div>
-                                            <div class="review-rating" data-toggle="collapse"
-                                                data-target="#c{{ review._id }}" aria-expanded="true"
-                                                aria-controls="c{{ review._id }}">
-                                                <strong>{{ review.name }}: </strong>
-                                                <div class="rating-stars" data-toggle="tooltip" data-placement="top"
-                                                    title="Rated {{ review.rating }}/5">
-                                                    <div class="stars-container"
-                                                        style="width: calc(100%/5*{{ review.rating }});">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </div>
-                                                    <div class="empty-stars">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </div>
+                                        </div>
+                                        <div class="review-rating order-0 order-sm-1" data-toggle="collapse"
+                                            data-target="#c{{ review._id }}" aria-expanded="true"
+                                            aria-controls="c{{ review._id }}">
+                                            <span>{{ review.name }}: </span>
+                                            <div class="rating-stars" data-toggle="tooltip" data-placement="top"
+                                                title="Rated {{ review.rating }}/5">
+                                                <div class="stars-container"
+                                                    style="width: calc(100%/5*{{ review.rating }});">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="empty-stars">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
                                                 </div>
                                             </div>
                                         </div>
                                         {% if session.user == review.user %}
-                                            <div class="d-flex flex-column flex-md-row ml-2">
+                                            <div class="d-flex flex-row ml-2 order-2">
                                                 <a href="{{ url_for('edit_review', review_id=review._id) }}" type="button"
                                                     class="btn btn-info btn"><i class="fas fa-pen"></i></a>
                                                 <a href="{{ url_for('delete_review', review_id=review._id) }}" type="button"
@@ -212,7 +212,7 @@
                                         {% endif %}
                                     </div>
                                     <div id="c{{ review._id }}" class="collapse card-body review-collapse"
-                                        aria-labelledby="h{{ review._id }}" data-parent="#accordion">
+                                        aria-labelledby="h{{ review._id }}" data-parent="#top-reviews">
                                         <p>{{ review.comment }}</p>
                                         <small class="muted">Added: {{ review.added_on }} {% if review.added_on !=
                                             review.edited %}<br>Edited:
