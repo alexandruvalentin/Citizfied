@@ -185,7 +185,7 @@ def add_review():
     if session.get('user'):
         if request.method == "POST":
             if not request.form.get("country") or not request.form.get("city") or \
-                    len(request.form.get("comment")) not in range(5, 500) or \
+                    len(request.form.get("comment")) not in range(5, 501) or \
                     float(request.form.get("rating")) not in np.arange(1, 5.5, 0.5):
                 if not request.form.get("country"):
                     flash("Please select a country!")
@@ -213,7 +213,7 @@ def add_review():
                     }
                     mongo.db.reviews.insert_one(review)
                     flash("Review Successfully Added")
-                    return redirect(url_for("get_reviews"))
+                    return redirect(url_for("profile"))
                 else:
                     flash("You have already reviewed this city!")
 
@@ -250,19 +250,31 @@ def edit_review(review_id):
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
     if session.get('user') == review.get('user'):
         if request.method == "POST":
-            submit = {
-                "country": request.form.get("country"),
-                "city": request.form.get("city"),
-                "rating": request.form.get("rating"),
-                "comment": request.form.get("comment"),
-                "user": session["user"],
-                "edited": datetime.now().strftime('%B %d, %Y, %H:%M')
-            }
+            if not request.form.get("country") or not request.form.get("city") or \
+                    len(request.form.get("comment")) not in range(5, 501) or \
+                    float(request.form.get("rating")) not in np.arange(1, 5.5, 0.5):
+                if not request.form.get("country"):
+                    flash("Please select a country!")
+                if not request.form.get("city"):
+                    flash("Please select a city!")
+                if len(request.form.get("comment")) not in range(5, 501):
+                    flash("Your review should be 5-500 characters!")
+                if float(request.form.get("rating")) not in np.arange(1, 5.5, 0.5):
+                    flash("Rating invalid!")
+            else:
+                submit = {
+                    "country": request.form.get("country"),
+                    "city": request.form.get("city"),
+                    "rating": request.form.get("rating"),
+                    "comment": request.form.get("comment"),
+                    "user": session["user"],
+                    "edited": datetime.now().strftime('%B %d, %Y, %H:%M')
+                }
 
-            mongo.db.reviews.update({"_id": ObjectId(review_id)}, {
-                '$set': submit})
-            flash("Review Successfully Updated")
-            return redirect(url_for("get_reviews"))
+                mongo.db.reviews.update({"_id": ObjectId(review_id)}, {
+                    '$set': submit})
+                flash("Review Successfully Updated")
+                return redirect(url_for("profile"))
         countries = pycountry.countries
         return render_template(
             "edit_review.html", countries=countries, review=review)
@@ -279,7 +291,7 @@ def delete_review(review_id):
         flash("Review Deleted")
     else:
         flash("Only authors can delete reviews!")
-    return redirect(url_for("get_reviews"))
+    return redirect(url_for("profile"))
 
 
 if __name__ == "__main__":
