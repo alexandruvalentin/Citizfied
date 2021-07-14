@@ -23,6 +23,14 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    """Error handler for error 404 NOT FOUND"""
+
+    flash('Page not found!')
+    return redirect(url_for('get_reviews'))
+
+
 @app.route('/images/<file>')
 def images(file):
     return send_from_directory('images', file)
