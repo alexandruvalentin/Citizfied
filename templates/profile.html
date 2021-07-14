@@ -12,11 +12,15 @@
                 </div>
                 <div class="card-body display-name">
                     <h3>Personal details</h3>
+                    <div class="col-12 col-sm-6">
                     <form method="POST">
+                        <div class="form-group">
                         <label for="name">Display Name:</label>
-                        <input type="text" name="name" id="name" value="{{ user.name }}">
+                        <input type="text" name="name" id="name" class="form-control" value="{{ user.name }}">
+                        </div>
                         <input type="submit" value="Update">
                     </form>
+                    </div>
                 </div>
                 <div class="card-body">
                     <h2>My Reviews</h2>
