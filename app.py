@@ -110,31 +110,36 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    if request.method == "POST":
-        # check if username exists in db
-        existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+    if not session.get('user'):
+        if request.method == "POST":
+            # check if username exists in db
+            existing_user = mongo.db.users.find_one(
+                {"username": request.form.get("username").lower()})
 
-        if existing_user:
-            # ensure hashed password matches user input
-            if check_password_hash(
-                    existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("username")
-                flash("Welcome, {}".format(
-                    request.form.get("username")))
-                return redirect(url_for(
-                    "get_reviews", username=session["user"]))
+            if existing_user:
+                # ensure hashed password matches user input
+                if check_password_hash(
+                        existing_user["password"], request.form.get("password")):
+                    session["user"] = request.form.get("username")
+                    flash("Welcome, {}".format(
+                        request.form.get("username")))
+                    return redirect(url_for(
+                        "get_reviews", username=session["user"]))
+                else:
+                    # invalid password match
+                    flash("Incorrect Username and/or Password")
+                    return redirect(url_for("login"))
+
             else:
-                # invalid password match
+                # username doesn't exist
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
 
-        else:
-            # username doesn't exist
-            flash("Incorrect Username and/or Password")
-            return redirect(url_for("login"))
-
-    return render_template("login.html")
+        return render_template("login.html")
+    else:
+        # user already logged in
+        flash("Already logged in.")
+        return redirect(url_for("get_reviews"))
 
 
 @app.route("/profile", methods=["GET", "POST"])
@@ -177,9 +182,7 @@ def logout():
 
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
-    user = mongo.db.users.find_one(
-        {"username": session.get('user')})
-    if user:
+    if session.get('user'):
         if request.method == "POST":
             if not request.form.get("country") or not request.form.get("city") or \
                     len(request.form.get("comment")) not in range(5, 500) or \
