@@ -96,12 +96,17 @@
             <div class="container-xl">
                 <div class="row align-items-center">
                     <div class="col-12 col-md-4 text-center py-1 order-0 order-md-1"><p>Copyright 2021 <i class="far fa-copyright"></i> Alexandru-Valentin Grapa.<br>Some rights reserved.</p></div>
+                    {% if request.endpoint != "get_reviews" %}
                     <div class="col-12 col-md-4 py-1 order-1 order-md-0">
                         <form action="{{ url_for('get_reviews') }}" method="GET">
                             <input class="form-control my-1" type="text" placeholder="Search..." aria-label="Search" name="s" id="query" required>
                             <button type="submit" class="btn btn-block btn-default mx-0 my-1">Search</button>
                         </form>
                     </div>
+                    {% else %}
+                    <div class="col-12 col-md-4 py-1 order-1">
+                        </div>
+                    {% endif %}
                     <div class="col-12 col-md-4 py-1 order-2">
                         <a href="{{ url_for('get_reviews') }}#search-container" type="button" class="btn btn-light btn-block mx-0 my-1">Find A Review</a>
                         <a href="{{ url_for('add_review') }}" type="button" class="btn btn-default btn-block mx-0 my-1">Add A Review</a>
