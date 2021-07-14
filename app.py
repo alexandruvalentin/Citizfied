@@ -63,9 +63,10 @@ def get_reviews():
     else:
         # If no search, then get recent and top reviews
         search_reviews = []
-        recent_reviews = map_reviews(list(mongo.db.reviews.find().limit(5)))
+        recent_reviews = map_reviews(list(mongo.db.reviews.find().sort(
+            [("added_on", pymongo.DESCENDING)]).limit(5)))
         top_reviews = map_reviews(list(mongo.db.reviews.find().sort(
-            [("rating", pymongo.DESCENDING)]).limit(5)))
+            [("rating", pymongo.DESCENDING), ("added_on", pymongo.DESCENDING)]).limit(5)))
 
     return render_template("reviews.html", search_reviews=search_reviews,
                            recent_reviews=recent_reviews,
