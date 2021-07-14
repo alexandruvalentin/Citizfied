@@ -115,6 +115,7 @@ section#hero {
 
 .cta-container {
     padding-bottom: 84px;
+    background-color: rgba(113,143,148,1);
 }
 
 .image-container {
@@ -125,6 +126,7 @@ section#hero {
     -o-background-size: cover;
     background-size: cover;
     min-height: 150px;
+    background-color: rgba(113,143,148,.8);
 }
 
 .container-fluid {
@@ -138,6 +140,7 @@ section#hero {
 
 .hero-container {
     height: 60vh;
+    background-size: cover;
 }
 
 .cta-header h1 {
@@ -502,17 +505,20 @@ footer {
 
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .review-rating {
         padding-left: .8rem;
     }
     .accordion>.card:not(:last-of-type) {
         border-bottom: 1px solid rgba(0,0,0,.125);
     }
+    .cta-container {
+        background-color: rgba(113,143,148,.7);
+    }
 }
 
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 575px) {
     .navbar-light .navbar-brand {
         font-size: 2rem;
     }

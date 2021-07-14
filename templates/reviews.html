@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <section id="hero">
-    <div class="container-fluid hero-container">
+    <div class="container-fluid hero-container" style="background-image: url('{{ url_for('images', file='hero-image.jpg') }}');">
         <div class="row h-100 mx-0">
-            <div class="col-12 col-sm-6 image-container"
+            <div class="col-12 col-md-6 image-container d-none d-md-block"
                 style="background-image: url('{{ url_for('images', file='hero-image.jpg') }}');">
             </div>
-            <div class="col-12 col-sm-6 cta-container h-100">
+            <div class="col-12 col-md-6 cta-container h-100 d-flex flex-column justify-content-center">
                 <div class="cta-header">
                     <h1 class="text-center">
                         Find the city<br>that fits you best
