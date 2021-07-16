@@ -90,7 +90,7 @@ def register():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            flash("Username already exists")
+            flash("Username already exists!")
             return redirect(url_for("register"))
 
         register = {
@@ -102,7 +102,7 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
+        flash("Registration successful!")
         return redirect(url_for("get_reviews", username=session.get("user")))
 
     return render_template("register.html")
@@ -138,7 +138,7 @@ def login():
         return render_template("login.html")
     else:
         # user already logged in
-        flash("Already logged in.")
+        flash("You have already logged in!")
         return redirect(url_for("get_reviews"))
 
 
@@ -168,7 +168,7 @@ def profile():
 
         return render_template("profile.html", reviews=reviews, user=user)
     else:
-        flash("Please log in")
+        flash("Please log in!")
         return redirect(url_for("login"))
 
 
@@ -212,7 +212,7 @@ def add_review():
                         "edited": datetime.now().strftime('%B %d, %Y, %H:%M')
                     }
                     mongo.db.reviews.insert_one(review)
-                    flash("Review Successfully Added")
+                    flash("Review successfully added!")
                     return redirect(url_for("profile"))
                 else:
                     flash("You have already reviewed this city!")
@@ -221,7 +221,7 @@ def add_review():
         return render_template(
             "add_review.html", countries=countries)
     else:
-        flash("Please log in")
+        flash("Please log in!")
         return redirect(url_for("login"))
 
 
@@ -273,7 +273,7 @@ def edit_review(review_id):
 
                 mongo.db.reviews.update({"_id": ObjectId(review_id)}, {
                     '$set': submit})
-                flash("Review Successfully Updated")
+                flash("Review successfully updated!")
                 return redirect(url_for("profile"))
         countries = pycountry.countries
         return render_template(
@@ -288,7 +288,7 @@ def delete_review(review_id):
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
     if session.get('user') == review.get('user'):
         mongo.db.reviews.remove({"_id": ObjectId(review_id)})
-        flash("Review Deleted")
+        flash("Review deleted!")
     else:
         flash("Only authors can delete reviews!")
     return redirect(url_for("profile"))

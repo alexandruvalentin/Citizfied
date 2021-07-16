@@ -1,7 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
 
+/* MAIN STYLES */
+body {
+    background-color: #BFC8AD;
+    color: #fff;
+    font-family: 'Mukta', sans-serif;
+    scroll-behavior: smooth;
+}
 
+main {
+    margin-bottom: 3rem;
+}
+
+section {
+    margin-top: 3rem;
+}
+
+
+a {
+    color: #DBCFB0;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.flashes h4 {
+    line-height: 5;
+}
+
+/* NAVBAR SECTION */
 .navbar-light .navbar-brand {
     color: #90B494;
     font-family: 'Otomanopee One', sans-serif;
@@ -52,40 +81,15 @@
     font-size: 2.7rem;
 }
 
-body {
-    background-color: #BFC8AD;
-    color: #fff;
-    font-family: 'Mukta', sans-serif;
-}
-
-main {
-    margin-bottom: 3rem;
-}
-
-.flashes h4 {
-    line-height: 5;
-}
-
-.btn {
-    font-size: 1.2rem;
-    margin: 2px;
-    border-radius: 0;
+.navbar-light .navbar-toggler {
+    font-size: 1.5rem;
+    outline: none;
     border: none;
+    box-shadow: none;
+    color: #565554;
 }
 
-.review-caret {
-    padding: 0;
-    background-color: rgba(0,0,0,0.4);
-    color: transparent;
-    text-shadow: 0px 2px 3px #8fb0b6;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-    -webkit-transition: -webkit-transform .2s ease-in-out;
-    -ms-transition: -ms-transform .2s ease-in-out;
-    transition: transform .2s ease-in-out; 
-}
-
+/* TOAST CONTAINER */
 .toast-container {
     position: absolute;
     display: flex;
@@ -98,10 +102,22 @@ main {
     z-index: 9999;
 }
 
-section {
-    margin-top: 3rem;
+.toast-header {
+    background-color: #ebf2f3;
+    border-radius: 0;
+    font-size: 1.2rem;
 }
 
+.toast {
+    background-color: #565554;
+    border-radius: 0;
+    font-size: 1rem;
+    flex-basis: 0;
+    width: 100%;
+    min-width: 300px;
+}
+
+/* HERO SECTION */
 section#hero, section#toasts {
     margin-top: 0;
 }
@@ -134,10 +150,6 @@ section#hero {
     margin: 0;
 }
 
-#search_container {
-    max-width: 60%;
-}
-
 .hero-container {
     height: 60vh;
     background-size: cover;
@@ -157,83 +169,7 @@ section#hero {
     font-weight: 600;
 }
 
-.btn-light {
-    text-shadow: none;
-    background-color: #DBCFB0;
-    color: #565554;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-.btn-light:hover {
-    color: #fff;
-    background-color: #565554;
-    transition: all 0.3s ease;
-}
-
-.btn-default {
-    text-shadow: none;
-    background-color: #90B494;
-    color: #fff;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-.btn-default:hover {
-    color: #fff;
-    background-color: #565554;
-    transition: all 0.3s ease;
-}
-
-.btn-dark {
-    text-shadow: none;
-    background-color: #565554;
-    color: #fff;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-.btn-dark:hover {
-    color: #fff;
-    background-color: #90B494;
-    transition: all 0.3s ease;
-}
-
-.btn-danger {
-    background-color: #ce5a73;
-}
-
-.btn-info {
-    background-color: #74b2d6;
-}
-
-.btn-link {
-    color: #fff;
-    text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.30);
-    font-size: 1.3rem;
-}
-
-.btn-link:hover, .btn-link:active, .btn-link:focus {
-    color: #fff;
-    box-shadow: none;
-}
-
-#reviews .card-body h5 {
-    margin: 1rem 0;
-}
-
-.review-rating {
-    display: flex;
-    justify-content: flex-end;
-    white-space: nowrap;
-}
-
-@media screen and (min-width: 768px) {
-    .hero-container {
-        height: 50vh;
-    }
-}
-
+/* SHADE DIVIDER */
 /* CREDITS for the shape divider: https://codepen.io/cmdw/pen/vQqzyB */
 .editorial {
     display: block;
@@ -305,7 +241,138 @@ section#hero {
     }
 }
 
+/* REVIEWS CONTAINER */
+#reviews .card-body h5 {
+    margin: 1rem 0;
+}
 
+.review-rating {
+    display: flex;
+    justify-content: flex-end;
+    white-space: nowrap;
+}
+
+.review-caret {
+    padding: 0;
+    background-color: rgba(0,0,0,0.4);
+    color: transparent;
+    text-shadow: 0px 2px 3px #8fb0b6;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-transition: -webkit-transform .2s ease-in-out;
+    -ms-transition: -ms-transform .2s ease-in-out;
+    transition: transform .2s ease-in-out; 
+}
+
+.review-rating {
+    height: 1.5rem;
+}
+
+.rating-stars {
+    overflow: hidden;
+    min-width: 104px;
+    width: 104px;
+    max-height: 18px;
+    margin-left: 5px;
+    color: #DBCFB0;
+    position: relative;
+}
+
+.empty-stars {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    color: #576f73;
+}
+
+.stars-container {
+    white-space: nowrap;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+.muted {
+    color: #b9d9de;
+}
+
+/* BUTTONS */
+.btn {
+    font-size: 1.2rem;
+    margin: 2px;
+    border-radius: 0;
+    border: none;
+}
+
+.btn-light {
+    text-shadow: none;
+    background-color: #DBCFB0;
+    color: #565554;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.btn-light:hover {
+    color: #fff;
+    background-color: #565554;
+    transition: all 0.3s ease;
+}
+
+.btn-default {
+    text-shadow: none;
+    background-color: #90B494;
+    color: #fff;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.btn-default:hover {
+    color: #fff;
+    background-color: #565554;
+    transition: all 0.3s ease;
+}
+
+.btn-dark {
+    text-shadow: none;
+    background-color: #565554;
+    color: #fff;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.btn-dark:hover {
+    color: #fff;
+    background-color: #90B494;
+    transition: all 0.3s ease;
+}
+
+.btn-danger {
+    background-color: #ce5a73;
+}
+
+.btn-info {
+    background-color: #74b2d6;
+}
+
+.btn-link {
+    color: #fff;
+    text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.30);
+    font-size: 1.3rem;
+}
+
+.btn-link:hover, .btn-link:active, .btn-link:focus {
+    color: #fff;
+    box-shadow: none;
+}
+
+/* FORM STYLING */
 .card {
     border-radius: 0;
     background-color: #718F94;
@@ -340,41 +407,6 @@ section#hero {
 
 textarea.form-control {
     height: 120px;
-}
-
-.review-rating {
-    height: 1.5rem;
-}
-.rating-stars {
-    overflow: hidden;
-    min-width: 104px;
-    width: 104px;
-    max-height: 18px;
-    margin-left: 5px;
-    color: #DBCFB0;
-    position: relative;
-}
-.empty-stars {
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    position: absolute;
-    z-index: 0;
-    top: 0;
-    left: 0;
-    color: #576f73;
-}
-.stars-container {
-    white-space: nowrap;
-    overflow: hidden;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-}
-
-.muted {
-    color: #b9d9de;
 }
 
 #accordion .card-body {
@@ -423,6 +455,7 @@ textarea.form-control {
     font-size: 1.7rem;
 }
 
+/* ADD_REVIEW SLIDER */
 /* CREDITS for slider: https://www.w3schools.com/howto/howto_js_rangeslider.asp */
 .slider {
     -webkit-appearance: none;
@@ -440,8 +473,7 @@ textarea.form-control {
     opacity: 1;
   }
   
-  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-  .slider::-webkit-slider-thumb {
+.slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     border-radius: 0;
@@ -449,23 +481,15 @@ textarea.form-control {
     height: 35px;
     background: #565554;
     cursor: pointer;
-  }
-
-  .slider::-moz-range-thumb {
-    width: 20px; /* Set a specific slider handle width */
-    height: 35px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }
-
-a {
-    color: #DBCFB0;
 }
 
-a:hover {
-    color: #fff;
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 35px;
+    cursor: pointer;
 }
 
+/* FOOTER SECTION */
 footer {
     margin-top: auto;
 }
@@ -483,7 +507,23 @@ footer {
     color: #DBCFB0;
 }
 
+/* PROMPT MESSAGE */
+.jconfirm-title {
+    color:#565554;
+}
 
+.jconfirm-content {
+    color:#576f73;
+    overflow: visible !important;
+    display: block;
+}
+
+.jconfirm .jconfirm-box .jconfirm-buttons button,
+.jconfirm.jconfirm-white .jconfirm-box, .jconfirm.jconfirm-light .jconfirm-box {
+    border-radius: 0;
+}
+
+/* MEDIA QUERIES */
 @media screen and (max-width: 992px) {
     .hero-container h1 {
         font-size: 2.5rem;
@@ -503,9 +543,10 @@ footer {
     }
 }
 
-
-
 @media screen and (max-width: 767px) {
+    .hero-container {
+        height: 50vh;
+    }
     .review-rating {
         padding-left: .8rem;
     }
@@ -516,7 +557,6 @@ footer {
         background-color: rgba(113,143,148,.7);
     }
 }
-
 
 @media screen and (max-width: 575px) {
     .navbar-light .navbar-brand {
@@ -567,42 +607,4 @@ footer {
     .content h3 {
         font-size: 2rem;
     }
-}
-
-
-.toast-header {
-    background-color: #ebf2f3;
-    border-radius: 0;
-    font-size: 1.2rem;
-}
-.toast {
-    background-color: #565554;
-    border-radius: 0;
-    font-size: 1rem;
-    flex-basis: 0;
-    width: 100%;
-    min-width: 300px;
-}
-
-.navbar-light .navbar-toggler {
-    font-size: 1.5rem;
-    outline: none;
-    border: none;
-    box-shadow: none;
-    color: #565554;
-}
-
-.jconfirm-title {
-    color:#565554;
-}
-
-.jconfirm-content {
-    color:#576f73;
-    overflow: visible !important;
-    display: block;
-}
-
-.jconfirm .jconfirm-box .jconfirm-buttons button,
-.jconfirm.jconfirm-white .jconfirm-box, .jconfirm.jconfirm-light .jconfirm-box {
-    border-radius: 0;
 }
