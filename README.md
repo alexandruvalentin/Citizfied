@@ -86,8 +86,12 @@ The website is designed to be intuitive and learnable
   * [Mukta](https://fonts.google.com/specimen/Mukta?query=mukta)
 
 * Media
+  
+  * Images used throughout the project are relevant to the purpose of the website.
+  * All images have been resized and compressed in order to boost the UX flow.
 
 * Iconography
+  * Icons have been used throughout the website in order to boost the UX efficiency.
 
 ### __Features__
 
