@@ -95,6 +95,39 @@ The website is designed to be intuitive and learnable
 
 ## __Features__
 
+### Home Page
+
+- ### Navigation Bar
+  The navigation bar will allow the user to easily navigate through the website's pages .
+
+- ### Full width Hero Section (Call to Action)
+  It provides the user with the opportunity to explore. This way, the website can promote its purpose right away and keep the user engaged.
+
+- ### Reviews Section
+  Displays the website's purpose right away and invites the user to interact with it.
+
+- ### Footer
+  Provides creator details and more Calls to Action.
+
+### Register Page
+- ### Registration Form
+  Gives the user the opportunity to sign up in order to make the most of the application. They will have to come up with an username, display name(which can later be updated in the user's profile page) and password.
+
+- ### Footer
+  Compared to the home page, the footer also displays a search bar for the user to be able to action right away.
+
+### Log In Page
+- ### Log In Form
+  Requests the registered username and password in order to log on to the app.
+
+### Write A Review Page
+
+- ### Form
+  Invites the user to interact with the website, adding reviews which can later be edited or removed. They will choose any city from any country, give it a rating in stars and then write a comment that describes their experience(once submitted, they will be able to edit or remove said review from the profile page).
+
+### Profile Page
+  Displays the current user's submitted reviews. Allows them to either edit or remove them.
+
 ## __Database__
 
 The MongoDB database used for this project is document-based as a relational database is not needed.
