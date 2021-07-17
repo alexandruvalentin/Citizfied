@@ -24,15 +24,15 @@
                 </div>
                 <div class="card-body">
                     <h2>My Reviews</h2>
-                    <div class="accordion" id="accordion">
+                    <div class="accordion" id="accordion" role="tree">
                         {% for review in reviews %}
                         <div class="card">
                             <div class="card-header d-flex justify-content-between align-items-center" id="h{{ review._id }}">
-                                <i class="review-caret fas fa-angle-right fa-2x" data-toggle="collapse" role="button"
+                                <i class="review-caret fas fa-angle-right fa-2x" data-toggle="collapse" role="treeitem"
                                         data-target="#c{{ review._id }}" aria-expanded="true"
                                         aria-controls="c{{ review._id }}"></i>
                                 <div class="d-flex justify-content-center align-items-start justify-content-md-between align-items-md-center flex-column flex-md-row w-100">
-                                    <div class="w-100" data-toggle="collapse" role="cell" data-target="#c{{ review._id }}" role="button"
+                                    <div class="w-100" data-toggle="collapse" role="cell" data-target="#c{{ review._id }}" role="treeitem"
                                         aria-expanded="true" aria-controls="c{{ review._id }}">
                                         <h2 class="mb-0">
                                             <button class="btn btn-link btn-block text-left" type="button">
@@ -41,7 +41,7 @@
                                         </h2>
                                     </div>
                                     <div class="review-rating" data-toggle="collapse" data-target="#c{{ review._id }}"
-                                        aria-expanded="true" aria-controls="c{{ review._id }}">
+                                        aria-expanded="true" aria-controls="c{{ review._id }}" role="treeitem">
                                         <div class="rating-stars" data-toggle="tooltip" data-placement="top"
                                             title="Rated {{ review.rating }}/5">
                                             <div class="stars-container"

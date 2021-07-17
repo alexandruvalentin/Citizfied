@@ -47,6 +47,7 @@
             <use xlink:href="#gentle-wave" x="50" y="6" fill="#BFC8AD" />
         </g>
     </svg>
+    </div>
 </section>
 
 <section id="reviews" class="content">
@@ -92,20 +93,20 @@
                             <!-- Check if show_top_reviews is set (no search), and display top 5 reviews accordion -->
                             {% if show_top_reviews %}
                             <h5>Highest rated:</h5>
-                            <div class="accordion" id="top-reviews">
+                            <div class="accordion" id="top-reviews" role="tree">
                                 {% for review in show_top_reviews %}
                                 <div class="card">
                                     <div class="card-header d-flex justify-content-between align-items-start align-items-sm-center flex-column flex-sm-row" id="h{{ review._id }}h">
                                         <div class="d-flex justify-content-center align-items-start flex-row w-100 order-1 order-sm-0">
-                                            <i class="review-caret fas fa-angle-right fa-2x" data-toggle="collapse"
+                                            <i class="review-caret fas fa-angle-right fa-2x" data-toggle="collapse" role="treeitem"
                                                     data-target="#c{{ review._id }}h" aria-expanded="true"
                                                     aria-controls="c{{ review._id }}h"></i>
                                             <div class="w-100" data-toggle="collapse" data-target="#c{{ review._id }}h"
-                                                aria-expanded="true" aria-controls="c{{ review._id }}h">
+                                                aria-expanded="true" aria-controls="c{{ review._id }}h" role="treeitem">
                                                 <h2 class="mb-0">
                                                     <button class="btn btn-link btn-block text-left" type="button"
                                                         data-toggle="collapse" data-target="#c{{ review._id }}h"
-                                                        aria-expanded="true" aria-controls="c{{ review._id }}h">
+                                                        aria-expanded="true" aria-controls="c{{ review._id }}h" role="treeitem">
                                                         <strong>{{ review.country }}</strong> : {{ review.city }}
                                                     </button>
                                                 </h2>
@@ -113,7 +114,7 @@
                                         </div>
                                         <div class="review-rating order-0 order-sm-1" data-toggle="collapse"
                                             data-target="#c{{ review._id }}h" aria-expanded="true"
-                                            aria-controls="c{{ review._id }}h">
+                                            aria-controls="c{{ review._id }}h" role="treeitem">
                                             <span>{{ review.name }}: </span>
                                             <div class="rating-stars" data-toggle="tooltip" data-placement="top"
                                                 title="Rated {{ review.rating }}/5">
@@ -156,7 +157,7 @@
                             </div>
                             {% endif %}
                             <!-- Display previously set show_reviews accordion, search or recent -->
-                            <div class="accordion" id="accordion">
+                            <div class="accordion" id="accordion" role="tree">
                                 {% if not request.args.get('s') %}
                                     <h5>Most recent:</h5>
                                 {% endif %}
@@ -164,22 +165,22 @@
                                 <div class="card">
                                     <div class="card-header d-flex justify-content-between align-items-start align-items-sm-center flex-column flex-sm-row" id="h{{ review._id }}">
                                         <div class="d-flex justify-content-center align-items-start flex-row w-100 order-1 order-sm-0">
-                                            <i class="review-caret fas fa-angle-right fa-2x" data-toggle="collapse"
+                                            <i class="review-caret fas fa-angle-right fa-2x" data-toggle="collapse" role="treeitem"
                                                     data-target="#c{{ review._id }}" aria-expanded="true"
                                                     aria-controls="c{{ review._id }}"></i>
                                             <div class="w-100" data-toggle="collapse" data-target="#c{{ review._id }}"
-                                                aria-expanded="true" aria-controls="c{{ review._id }}">
+                                                aria-expanded="true" aria-controls="c{{ review._id }}" role="treeitem">
                                                 <h2 class="mb-0">
                                                     <button class="btn btn-link btn-block text-left" type="button"
                                                         data-toggle="collapse" data-target="#c{{ review._id }}"
-                                                        aria-expanded="true" aria-controls="c{{ review._id }}">
+                                                        aria-expanded="true" aria-controls="c{{ review._id }}" role="treeitem">
                                                         <strong>{{ review.country }}</strong> : {{ review.city }}
                                                     </button>
                                                 </h2>
                                             </div>
                                         </div>
                                         <div class="review-rating order-0 order-sm-1" data-toggle="collapse"
-                                            data-target="#c{{ review._id }}" aria-expanded="true"
+                                            data-target="#c{{ review._id }}" aria-expanded="true" role="treeitem"
                                             aria-controls="c{{ review._id }}">
                                             <span>{{ review.name }}: </span>
                                             <div class="rating-stars" data-toggle="tooltip" data-placement="top"
