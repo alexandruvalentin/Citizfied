@@ -166,7 +166,7 @@ The MongoDB database used for this project is document-based as a relational dat
 
 ## __Testing__
 
- - ### Click [here] for the full testing process.
+ - ### Click [here](https://github.com/alexandruvalentin/Citizfied/blob/main/TEST.md) for the full testing process.
 
 ## __Deployment__
 
