@@ -64,6 +64,15 @@ The website is designed to be intuitive and learnable
 
 * Wireframes
 
+  * [Mobile View](https://github.com/alexandruvalentin/Citizfied/blob/main/readme-images/mobile-wireframe.jpg)
+  * [Tablet View - Home Page](https://github.com/alexandruvalentin/Citizfied/blob/main/readme-images/tablet-home.jpg)
+  * [Tablet View - Write A Review](https://github.com/alexandruvalentin/Citizfied/blob/main/readme-images/tablet-writeareview.jpg)
+  * [Tablet View - Profile Page](https://github.com/alexandruvalentin/Citizfied/blob/main/readme-images/tablet-profile.jpg)
+  * [Desktop View - Home Page](https://github.com/alexandruvalentin/Citizfied/blob/main/readme-images/desktop-home.jpg)
+  * [Desktop View - Write A Review](https://github.com/alexandruvalentin/Citizfied/blob/main/readme-images/desktop-writeareview.jpg)
+  * [Desktop View - Profile Page](https://github.com/alexandruvalentin/Citizfied/blob/main/readme-images/desktop-profile.jpg)
+ 
+
 ### __Design Choices__
 
 * Colors
