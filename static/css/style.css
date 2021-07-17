@@ -604,6 +604,18 @@ footer {
     .btn {
         font-size: .9rem;
     }
+    .card-header h3 {
+        font-size: 2rem;
+    }
+    .card-body.display-name h3 {
+        font-size: 1.5rem;
+    }
+    .card-body.display-name input {
+        font-size: 1rem;
+    }
+    .h2, h2 {
+        font-size: 1.7rem;
+    }
     .content h3 {
         font-size: 2rem;
     }

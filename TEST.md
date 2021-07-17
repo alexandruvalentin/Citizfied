@@ -60,6 +60,10 @@
 
 ## Testing Performance
 
+The app's erformance was tested using Google Chrome's **Lighthouse** for both desktop and mobile. Extra mobile tests were made using an actual mobile device.
+
+>   ![LightHouse Performance Result](https://github.com/alexandruvalentin/Citizfied/blob/main/readme-images/performance.jpg)  
+
 ## Testing Accessibility
 
 ## Code Validation
