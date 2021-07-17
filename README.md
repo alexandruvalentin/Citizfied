@@ -73,7 +73,7 @@ The website is designed to be intuitive and learnable
   * [Desktop View - Profile Page](https://github.com/alexandruvalentin/Citizfied/blob/main/readme-images/desktop-profile.jpg)
  
 
-### __Design Choices__
+## __Design Choices__
 
 * Colors
   
@@ -93,15 +93,15 @@ The website is designed to be intuitive and learnable
 * Iconography
   * Icons have been used throughout the website in order to boost the UX efficiency.
 
-### __Features__
+## __Features__
 
-### __Database__
+## __Database__
 
 The MongoDB database used for this project is document-based as a relational database is not needed.
 
 ![DB Schema](https://github.com/alexandruvalentin/Citizfied/blob/main/readme-images/db-schema.png)
 
-### __Technologies Used__
+## __Technologies Used__
 
 - Workspace
   * [Visual Studio Code](https://code.visualstudio.com/) as Integrated Development Environment
@@ -131,11 +131,11 @@ The MongoDB database used for this project is document-based as a relational dat
     * [Compress JPEG](https://compressjpeg.com/) was used to compress images size
     * [dbdiagram.io](https://dbdiagram.io/home) was used to create the database diagram
 
-### __Testing__
+## __Testing__
 
  - ### Click [here] for the full testing process.
 
-### __Deployment__
+## __Deployment__
 
 - ### Forking the GitHub Repository
   By forking the GitHub Repository you make a copy of the original repository on your GitHub account to view and/or make changes without affecting the original repository by using the following steps:
@@ -222,7 +222,7 @@ The MongoDB database used for this project is document-based as a relational dat
   8. Under the **Manual deploy** section, click **Deploy Branch** for initial deploy.
   9. You can now browse the deployed app by clicking **Open app** button on top right of the dashboard.
 
-### __Credits__
+## __Credits__
 
 - ### Media & Content
   - [FREE SVG](https://freesvg.org/) for the footer SVG
@@ -235,4 +235,7 @@ The MongoDB database used for this project is document-based as a relational dat
   - [Stack Overflow](https://stackoverflow.com/) as a general resource.
   - [W3Schools](https://www.w3schools.com/) as a general resource.
 
-### __Acknowledgements__
+## Acknowledgements
+  - **My mentor**: Precious Ijege for continuous and helpful feedback along the project.
+  - The **Slack** community of Code Institute for feedback.
+  - **Peer student**: [Paul Istratoaie](https://github.com/pinco227) for incredibly helpful feedback along the process and for helping with device testing.
