@@ -104,7 +104,7 @@ The MongoDB database used for this project is document-based as a relational dat
 ### __Technologies Used__
 
 - Workspace
-  [Visual Studio Code](https://code.visualstudio.com/) as Integrated Development Environment
+  * [Visual Studio Code](https://code.visualstudio.com/) as Integrated Development Environment
 
 - Languages
   * [HTML5](https://en.wikipedia.org/wiki/HTML5)
@@ -136,6 +136,91 @@ The MongoDB database used for this project is document-based as a relational dat
  - ### Click [here] for the full testing process.
 
 ### __Deployment__
+
+- ### Forking the GitHub Repository
+  By forking the GitHub Repository you make a copy of the original repository on your GitHub account to view and/or make changes without affecting the original repository by using the following steps:
+  1. Log in to GitHub and locate the [Citizfied Repository](https://github.com/alexandruvalentin/Citizfied);
+  2. At the top right of the Repository just above the "Settings" Button on the menu, locate and click the "**Fork**" Button;
+  3. You should now have a copy of the original repository in your GitHub account;
+
+- ### Local Machine
+  1. Log in to GitHub and locate the [Citizfied Repository](https://github.com/alexandruvalentin/Citizfied)
+  2. At the top of the Repository just above the list of files, locate and click the "**Code**" dropdown;
+  3. To clone the repository using HTTPS, under "**Clone**", make sure "**HTTPS**" is selected and copy the link;
+  4. Open Git Bash;
+  5. Change the current working directory to the location desired for the directory creation;
+  6. Type ```git clone```, and then paste in the URL from the clipboard(Step 3);
+      ```bash
+      git clone https://github.com/alexandruvalentin/Citizfied.git
+      ```
+  7. Press Enter. Your local clone will be created.
+      ```bash
+      $ git clone https://github.com/alexandruvalentin/Citizfied.git
+      Cloning into 'Citizfied'...
+      remote: Enumerating objects: 408, done.
+      remote: Counting objects: 100% (408/408), done.
+      remote: Compressing objects: 100% (258/258), done.
+      remote: Total 408 (delta 156), reused 368 (delta 116), pack-reused 0
+      Receiving objects: 100% (408/408), 24.92 MiB | 15.71 MiB/s, done.
+      Resolving deltas: 100% (156/156), done.
+      ```
+      > Click [Here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
+  8. Create account:
+      - [MongoDB](https://www.mongodb.com/) account, project, cluster and database;
+  9.  Create the `env.py` file and include the following code (note that the values should be replaced with your own credentials)
+      ```python
+      import os
+
+      # App IP and PORT
+      os.environ.setdefault("IP", "0.0.0.0")
+      os.environ.setdefault("PORT", "5000")
+      # Generate a secret key, use https://randomkeygen.com/
+      os.environ.setdefault("SECRET_KEY", "<secret_key>")
+      # Mongo DB credentials
+      os.environ.setdefault("MONGO_URI", "<mongo_uri>")
+      os.environ.setdefault("MONGO_DBNAME", "<db_name>")
+      # Admin panel user and password
+      os.environ.setdefault("ADMIN_USERNAME", "<username>")
+      os.environ.setdefault("ADMIN_PASSWORD", "<password>")
+      # AWS Keys
+      os.environ.setdefault('AWS_ACCESS_KEY_ID', '<access_key>')
+      os.environ.setdefault('AWS_SECRET_ACCESS_KEY', '<secret_key>')
+      os.environ.setdefault('S3_BUCKET_NAME', '<bucket_name>')
+      # Email credentials. See mail_settings in app.py for more email settings
+      os.environ.setdefault("SENDGRID_API_KEY", "<api_key>")
+      os.environ.setdefault("MAIL_DEFAULT_SENDER", "<sender_email>")
+      # Recaptcha keys. Go to https://www.google.com/recaptcha/admin/create and create a new site
+      os.environ.setdefault("RC_SITE_KEY", "<recaptcha_site_key>")
+      os.environ.setdefault("RC_SECRET_KEY", "<recaptcha_secret_key>")
+      ```
+      > Make sure you add this file to **.gitignore** file so it will not be published.
+  10. Install required `python` packages by running the following command into terminal:
+      ```bash
+      pip3 install -r requirements.txt
+      ```
+  11. Run app by typing the following into terminal:
+      ```bash
+      python3 app.py
+      ```
+  12. Browse app by accessing [0.0.0.0:5000](http://0.0.0.0:5000) into a browser. At this point, if configured right, the app will automatically build the database.
+
+- ### Heroku
+  1. Make sure the `requirements.txt` and `Procfile` files are created. If not, type the followings into the terminal:
+      ```bash
+      pip3 freeze --local > requirements.txt
+      ```
+      and
+      ```bash
+      echo web: python app.py > Procfile
+      ```
+  2. Commit and push changes to forked repository.
+  3. Create a [Heroku](https://heroku.com) account and click **New** on top right of the dashboard to **Create a new app**.
+  4. Within the newly created app go to **Settings** tab and press **Reveal Config Vars**. Here you can add the variables initially stored into local `env.py` file: IP, SECRET_KEY, MONGO_URI, MONGO_DBNAME, ADMIN_USERNAME, ADMIN_PASSWORD, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, S3_BUCKET_NAME, SENDGRID_API_KEY, MAIL_DEFAULT_SENDER, RC_SITE_KEY, RC_SECRET_KEY.
+  5. Go to **Deploy** tab and under the **Deployment method** click on the **Github** icon.
+  6. Right under this section, type the `dev.pi` and search for the forked repository into your GitHub account. Select the right repository and click **Connect**.
+  7. Under the **Automatic deploys** section, click **Enable Automatic Deploys**. The deployment will be now automatic with every github `push` command.
+  8. Under the **Manual deploy** section, click **Deploy Branch** for initial deploy.
+  9. You can now browse the deployed app by clicking **Open app** button on top right of the dashboard.
 
 ### __Credits__
 
