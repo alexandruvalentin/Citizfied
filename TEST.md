@@ -57,3 +57,10 @@
 
   - ### Browser test
     > The website was tested on Google Chrome, Firefox, Safari and Microsoft Edge. Browser versions were all up to date. Further testing was done using [BrowserLing](https://www.browserling.com/). Features appear to be functional from top to bottom. Buttons, links, slider and forms are all working correctly. No overflow, overlay or error messages encountered. Everything falls into place in space. In conclusion, the website is browser-cross compatible.
+
+## Testing Performance
+
+## Testing Accessibility
+
+## Code Validation
+  - ### HTML

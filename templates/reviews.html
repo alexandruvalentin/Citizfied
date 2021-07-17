@@ -19,8 +19,8 @@
                 </p>
                 <div class="cta-buttons text-center">
                     <h3 class="text-center">START HERE</h3>
-                    <a href="#search-container" type="button" class="btn btn-light">Find A Review</a>
-                    <a href="{{ url_for('add_review') }}" type="button" class="btn btn-default">Add A Review</a>
+                    <a href="#search-container" role="button" class="btn btn-light">Find A Review</a>
+                    <a href="{{ url_for('add_review') }}" role="button" class="btn btn-default">Add A Review</a>
                 </div>
             </div>
         </div>
@@ -98,11 +98,11 @@
                                 <div class="card">
                                     <div class="card-header d-flex justify-content-between align-items-start align-items-sm-center flex-column flex-sm-row" id="h{{ review._id }}h">
                                         <div class="d-flex justify-content-center align-items-start flex-row w-100 order-1 order-sm-0">
-                                            <i class="review-caret fas fa-angle-right fa-2x" data-toggle="collapse"
+                                            <i class="review-caret fas fa-angle-right fa-2x" data-toggle="collapse" role="button"
                                                     data-target="#c{{ review._id }}h" aria-expanded="true"
                                                     aria-controls="c{{ review._id }}h"></i>
                                             <div class="w-100" data-toggle="collapse" data-target="#c{{ review._id }}h"
-                                                aria-expanded="true" aria-controls="c{{ review._id }}h">
+                                                aria-expanded="true" role="cell" aria-controls="c{{ review._id }}h">
                                                 <h2 class="mb-0">
                                                     <button class="btn btn-link btn-block text-left" type="button"
                                                         data-toggle="collapse" data-target="#c{{ review._id }}h"
@@ -112,7 +112,7 @@
                                                 </h2>
                                             </div>
                                         </div>
-                                        <div class="review-rating order-0 order-sm-1" data-toggle="collapse"
+                                        <div class="review-rating order-0 order-sm-1" data-toggle="collapse" role="banner"
                                             data-target="#c{{ review._id }}h" aria-expanded="true"
                                             aria-controls="c{{ review._id }}h">
                                             <span>{{ review.name }}: </span>
@@ -165,11 +165,11 @@
                                 <div class="card">
                                     <div class="card-header d-flex justify-content-between align-items-start align-items-sm-center flex-column flex-sm-row" id="h{{ review._id }}">
                                         <div class="d-flex justify-content-center align-items-start flex-row w-100 order-1 order-sm-0">
-                                            <i class="review-caret fas fa-angle-right fa-2x" data-toggle="collapse"
+                                            <i class="review-caret fas fa-angle-right fa-2x" data-toggle="collapse" role="button"
                                                     data-target="#c{{ review._id }}" aria-expanded="true"
                                                     aria-controls="c{{ review._id }}"></i>
                                             <div class="w-100" data-toggle="collapse" data-target="#c{{ review._id }}"
-                                                aria-expanded="true" aria-controls="c{{ review._id }}">
+                                                aria-expanded="true" role="cell" aria-controls="c{{ review._id }}">
                                                 <h2 class="mb-0">
                                                     <button class="btn btn-link btn-block text-left" type="button"
                                                         data-toggle="collapse" data-target="#c{{ review._id }}"
@@ -179,7 +179,7 @@
                                                 </h2>
                                             </div>
                                         </div>
-                                        <div class="review-rating order-0 order-sm-1" data-toggle="collapse"
+                                        <div class="review-rating order-0 order-sm-1" data-toggle="collapse" role="banner"
                                             data-target="#c{{ review._id }}" aria-expanded="true"
                                             aria-controls="c{{ review._id }}">
                                             <span>{{ review.name }}: </span>
