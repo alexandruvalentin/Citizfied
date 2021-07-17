@@ -40,22 +40,22 @@
     - **CREATE**: The 'create' functionality was tested by adding data to the designated fields. Works as expected. Forms are being uploaded to the database correctly :heavy_check_mark:
     - **READ**: The 'read' functionality was tested by verifying that the generated data is being correctly displayed in the right section. :heavy_check_mark:
     - **UPDATE**: The 'update' functionality was tested by editing the current user's reviews and by updating their Display Name from their profile page. No issues found :heavy_check_mark:
-    - **DELETE**: The 'delete' functionality was tested by deleting items uploaded by the current user. Clicking on the trash icon will trigger a prompt message which will complete the action upon approval.
+    - **DELETE**: The 'delete' functionality was tested by deleting items uploaded by the current user. Clicking on the trash icon will trigger a prompt message which will complete the action upon approval. :heavy_check_mark:
 
 ## Testing Compatibility
-  - ### Responsiveness
-    - Responsiveness was explored and tested using DevTools and on a wide variety of devices of different sizes, in both portrait and landscape, in order to detect any issue. No issues were found; elements align correctly in space, none being obstructed. In conclusion, the website is fully responsive. :heavy_check_mark:
+  - ### Responsiveness :heavy_check_mark:
+    - Responsiveness was explored and tested using DevTools and on a wide variety of devices of different sizes, in both portrait and landscape, in order to detect any issue. No issues were found; elements align correctly in space, none being obstructed. In conclusion, the website is fully responsive.
 
-  - ### OS Test
+  - ### OS Test :heavy_check_mark:
     - Desktop
     > Testing was done on Windows 7 and Windows 10. Features appear to be functional from top to bottom. Buttons, links, slider and forms are all working correctly. No overflow, overlay or error messages encountered. In conclusion, the website is desktop system-cross compatible.
     - Mobile
     > Testing was done on Android 10, iOS 13 and iOS 14. Features appear to be functional from top to bottom. Buttons, links, slideshow gallery and contact form, all work correctly. No overflow, overlay or error messages encountered. In conclusion, the website is mobile system-cross compatible.
 
-  - ### Devices test
+  - ### Devices test :heavy_check_mark:
     > Testing was done on ASUS TUF FX705G, Galaxy S20, iPhone 7/8/11/12/12 Pro and iPad Pro 12.9 2020. Features appear to be functional from top to bottom. Buttons, links, slider and forms are all working correctly. No overflow, overlay or error messages encountered. Everything falls into place in space. In conclusion, the website is platform-cross compatible.
 
-  - ### Browser test
+  - ### Browser test :heavy_check_mark:
     > The website was tested on Google Chrome, Firefox, Safari and Microsoft Edge. Browser versions were all up to date. Further testing was done using [BrowserLing](https://www.browserling.com/). Features appear to be functional from top to bottom. Buttons, links, slider and forms are all working correctly. No overflow, overlay or error messages encountered. Everything falls into place in space. In conclusion, the website is browser-cross compatible.
 
 ## Testing Performance
@@ -74,3 +74,13 @@
 
   - ### Python :heavy_check_mark:
     > Python has been validated during building process by **VSCode** integrated extensions **[Pylint](https://www.pylint.org/)** and **[Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)**, which are in compliance with PEP8 style guide. **No errors or issues**.
+
+## Further Testing
+  - ### Overflow :heavy_check_mark:
+    > Every page was tested for overflow by using the [Unicorn Revealer](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln?hl=en-GB) chrome extension to highlight the elements margins. **No issues found**.
+
+  - ### Spelling :heavy_check_mark:
+    > English grammar & spelling throughout the website was checked using [LanguageTool](https://languagetool.org/#plugins) chrome extension.
+
+  - ### Mobile Friendly :heavy_check_mark:
+    > According to [Google Mobile-Friendly Test](https://search.google.com/test/mobile-friendly?id=Azf0gym8vu8mKzd1bWgdIw), the app is mobile-friendly.
