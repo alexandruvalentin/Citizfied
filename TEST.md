@@ -15,3 +15,8 @@
     >:heavy_check_mark: The main page REVIEWS form displays reviews by categories: Most Recent and Top Rated. In addition, a search bar was implemented to allow the user to look up whatever they would like.
     - to be able to access your website across a range of devices
     >:heavy_check_mark: The website was built with a mobile-first approach and is fully responsive.
+
+## Testing Code
+> :heavy_check_mark: Every javascript method was tested for the expected outcome by using the app, in console by using `console.log()` or by manually calling the function.
+
+> :heavy_check_mark: Every python function and route was tested for the expected outcome by using the app, by accessing the route, in python console, while debug mode was ON, and by the `print()` function.
