@@ -250,7 +250,7 @@ The MongoDB database used for this project is document-based as a relational dat
   3. Create a [Heroku](https://heroku.com) account and click **New** on top right of the dashboard to **Create a new app**.
   4. Within the newly created app go to **Settings** tab and press **Reveal Config Vars**. Here you can add the variables initially stored into local `env.py` file: IP, SECRET_KEY, MONGO_URI, MONGO_DBNAME, ADMIN_USERNAME, ADMIN_PASSWORD, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, S3_BUCKET_NAME, SENDGRID_API_KEY, MAIL_DEFAULT_SENDER, RC_SITE_KEY, RC_SECRET_KEY.
   5. Go to **Deploy** tab and under the **Deployment method** click on the **Github** icon.
-  6. Right under this section, type the `dev.pi` and search for the forked repository into your GitHub account. Select the right repository and click **Connect**.
+  6. Right under this section, type `Citizfied` and search for the forked repository into your GitHub account. Select the right repository and click **Connect**.
   7. Under the **Automatic deploys** section, click **Enable Automatic Deploys**. The deployment will be now automatic with every github `push` command.
   8. Under the **Manual deploy** section, click **Deploy Branch** for initial deploy.
   9. You can now browse the deployed app by clicking **Open app** button on top right of the dashboard.
