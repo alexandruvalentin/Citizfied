@@ -63,4 +63,14 @@
 ## Testing Accessibility
 
 ## Code Validation
-  - ### HTML
+  - ### HTML :heavy_check_mark:
+    > Tested and validated using W3C Validator. Issues were adjusted and the only warning is received is for the lack of heading in the section elements which is not conclusive since the validator doesn't get the dynamically loaded content (which has headings for each page). The content for each page was separately tested with the same validator by direct input. No other errors or warnings.
+
+  - ### CSS :heavy_check_mark:
+    > Tested and validated with W3C CSS Validator. Only errors displayed are warnings concerning the vendor prefixes, which can be ignored.
+
+  - ### JavaScript :heavy_check_mark:
+    > Javascript methods and functions were tested for the expected outcome in the console using the console.log() command.
+
+  - ### Python :heavy_check_mark:
+    > Python has been validated during building process by **VSCode** integrated extensions **[Pylint](https://www.pylint.org/)** and **[Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)**, which are in compliance with PEP8 style guide. **No errors or issues**.
