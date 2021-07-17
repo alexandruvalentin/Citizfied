@@ -2,6 +2,12 @@
 
 This is the presentation website for a City Review Application. Citizfied uses HTML/CSS/JS/Python/Flask/MongoDB and is an educational project that serves as the Milestone Project 3 for the **Full-Stack Software Development** program powered by **Code Institute**.
 
+## Demo 
+
+[Live Website](https://citizfied.herokuapp.com/)
+
+![Am I Responsive](https://github.com/alexandruvalentin/Citizfied/blob/main/readme-images/amiresponsive.jpg)
+
 ## UX
 
 ### __Business Goals__
