@@ -20,3 +20,24 @@
 > :heavy_check_mark: Every javascript method was tested for the expected outcome by using the app, in console by using `console.log()` or by manually calling the function.
 
 > :heavy_check_mark: Every python function and route was tested for the expected outcome by using the app, by accessing the route, in python console, while debug mode was ON, and by the `print()` function.
+
+## Testing Functionality
+  - ### Testing Links and Buttons
+    - top navigation bar is fully functional, including the brand logo. :heavy_check_mark:
+    - mobile navigation toggle "burger" is functional, opening and closing as expected. :heavy_check_mark:
+    - 'Find A Review' button takes you to the main page search engine. :heavy_check_mark:
+    - 'Add A Review' button takes you to the Add Review form. :heavy_check_mark:
+    - 'Edit' button re-opens the review form. :heavy_check_mark:
+    - 'Delete' button triggers a prompt message that's double-checking with you if the action should continue, as expected. :heavy_check_mark:
+    - 'Update' button of the profile page updates the display name. :heavy_check_mark:
+    - 'Add Review' logs the completed form to web app and database. :heavy_check_mark:
+    - the rating slider is adding a half star to the rating stars with each 0.5 step and the counter also displays correctly. :heavy_check_mark:
+
+  - ### Testing Form Validation
+    - Every form(Register, Log In and Add Review) was tested for validation by trying to submit without data and then with one field at a time. Every field asks for input. Also, I have removed the required attribute from every field, using Chrome's DevTools, and resubmitted the form: the backend validation works, returning error messages for every required field. :heavy_check_mark:
+
+  - ### Testing CRUD Functionality
+    - **CREATE**: The 'create' functionality was tested by adding data to the designated fields. Works as expected. Forms are being uploaded to the database correctly :heavy_check_mark:
+    - **READ**: The 'read' functionality was tested by verifying that the generated data is being correctly displayed in the right section. :heavy_check_mark:
+    - **UPDATE**: The 'update' functionality was tested by editing the current user's reviews and by updating their Display Name from their profile page. No issues found :heavy_check_mark:
+    - **DELETE**: The 'delete' functionality was tested by deleting items uploaded by the current user. Clicking on the trash icon will trigger a prompt message which will complete the action upon approval.
