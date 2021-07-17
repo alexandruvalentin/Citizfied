@@ -224,4 +224,15 @@ The MongoDB database used for this project is document-based as a relational dat
 
 ### __Credits__
 
+- ### Media & Content
+  - [FREE SVG](https://freesvg.org/) for the footer SVG
+  - [Fabrizio Bianchi](http://fabrizio.io/) for creating [Coolors](https://coolors.co/) which was used to create the color palette
+  - [Johan Dufour](https://github.com/lutangar) for the [JSON file](https://github.com/lutangar/cities.json/blob/master/cities.json) that was used to import countries and cities from
+  - [CMDW](https://codepen.io/cmdw) for creating the [content divider](https://codepen.io/cmdw/pen/vQqzyB) used in the hero section
+  - [Niche](https://www.niche.com/) as a source of inspiration
+- ### Code
+  - [CSS TRICKS](https://css-tricks.com/) as a general resource.
+  - [Stack Overflow](https://stackoverflow.com/) as a general resource.
+  - [W3Schools](https://www.w3schools.com/) as a general resource.
+
 ### __Acknowledgements__
