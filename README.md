@@ -104,17 +104,32 @@ The MongoDB database used for this project is document-based as a relational dat
 ### __Technologies Used__
 
 - Workspace
+  [Visual Studio Code](https://code.visualstudio.com/) as Integrated Development Environment
 
 - Languages
+  * [HTML5](https://en.wikipedia.org/wiki/HTML5)
+  * [CSS3](https://en.wikipedia.org/wiki/CSS)
+  * [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+  * [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
 - Frameworks & Libraries
+  * [Font Awesome](https://fontawesome.com/) icons were used to improve aesthetics and [UX](#ux)
+  * [Google Fonts](https://fonts.google.com/) was used as the main font source
+  * [Bootstrap v4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/) was used for its responsiveness and styling classes
+  * [Flask](https://flask.palletsprojects.com/en/2.0.x/) was used as a back-end framework
+  * Python modules:
+    * [pymongo](https://pymongo.readthedocs.io/en/stable/) and [flask-pymongo](https://flask-pymongo.readthedocs.io/en/latest/) were used to connect the app to a MongoDB databse
 
 - Version Control
+  * [Github](https://github.com/) for hosting the repository.
 
 - Wireframes
     * [Balsamiq](https://balsamiq.com/) was used to create the wireframes
 
 - Media
+    * [Coolors](https://coolors.co/) was used to create the color palette
+    * [Compress JPEG](https://compressjpeg.com/) was used to compress images size
+    * [dbdiagram.io](https://dbdiagram.io/home) was used to create the database diagram
 
 ### __Testing__
 
