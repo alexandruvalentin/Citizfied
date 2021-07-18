@@ -32,7 +32,7 @@ $('.review-collapse').on('show.bs.collapse', function () {
 
 $('.review-collapse').on('hide.bs.collapse', function () {
     var label_elem = document.getElementById($(this).attr('aria-labelledby')).querySelector('.review-caret');
-    $(label_elem).css({ 'transform': 'rotate(0deg)' })
+    $(label_elem).css({ 'transform': 'rotate(0deg)' });
 });
 
 $('.delete').confirm({

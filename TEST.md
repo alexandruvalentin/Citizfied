@@ -1,6 +1,8 @@
 ## Encountered Issues
-  - Testing has been done frequently while building this application. While there were many encountered issues and bugs along the way, most of them were fixed quickly.
-
+Tests have been carried frequently along the building process of this application. While there were many encountered issues and bugs reported, most of them weren't found to take a great deal of time fixing. Issue worth mentioning:
+  - Accessing the absolute URL of an internal route:
+    - **FIXED** by using ```__external=True``` according to the [Flask documentation](https://flask.palletsprojects.com/en/2.0.x/api/) :heavy_check_mark:
+  
 ## Testing User Stories
   - ## As a user I need:
     - to navigate through your website quickly and efficiently
@@ -78,7 +80,7 @@ The website's accessibility was tested using the [a11y Color Contrast Accessibil
     > Tested and validated with W3C CSS Validator. Only errors displayed are warnings concerning the vendor prefixes, which can be ignored.
 
   - ### JavaScript :heavy_check_mark:
-    > Javascript methods and functions were tested for the expected outcome in the console using the console.log() command.
+    > Javascript methods and functions were tested for the expected outcome in the console using the console.log() command and the code was validated with [JSHint](https://jshint.com/).
 
   - ### Python :heavy_check_mark:
     > Python has been validated during building process by **VSCode** integrated extensions **[Pylint](https://www.pylint.org/)** and **[Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)**, which are in compliance with PEP8 style guide. **No errors or issues**.

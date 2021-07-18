@@ -87,9 +87,9 @@ The website is designed to be intuitive and learnable
 
 * Typography
   
-* One general font was used for this project, with a ```serif``` fallback. A second font was used to create the website's logo.
-  * [Otomanopee One](https://fonts.google.com/specimen/Otomanopee+One).
-  * [Mukta](https://fonts.google.com/specimen/Mukta?query=mukta)
+  * One general font was used for this project, with a ```serif``` fallback. A second font was used to create the website's logo.
+    * [Otomanopee One](https://fonts.google.com/specimen/Otomanopee+One).
+    * [Mukta](https://fonts.google.com/specimen/Mukta?query=mukta)
 
 * Media
   

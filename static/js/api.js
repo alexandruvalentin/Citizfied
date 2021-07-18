@@ -1,4 +1,3 @@
-
 const fetchApi = async (url, payload, success, fail) => {
     try {
         const response = await fetch(url, payload);
@@ -8,7 +7,8 @@ const fetchApi = async (url, payload, success, fail) => {
     } catch (error) {
         fail(error);
     }
-}
+};
+
 const countryElem = document.getElementById('country');
 const cityElem = document.getElementById('city');
 
@@ -17,14 +17,14 @@ countryElem.addEventListener('change', () => {
     if (countryCode) {
         const cityPayload = {
             "method": "GET"
-        }
+        };
 
         fetchApi('/cities/' + countryCode, cityPayload, (response) => {
             cityElem.innerHTML = response.map(city => {
                 return `<option value="${city}">${city}</option>`;
             }).join();
         }, (error) => {
-            console.log(error)
-        })
+            console.log(error);
+        });
     }
 });
