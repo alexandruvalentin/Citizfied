@@ -66,9 +66,9 @@ The website is designed to be intuitive and learnable
 
   Some changes took place along the coding process in regards to the initial wireframes. These changes are:
 
-  1. Mobile view hero container: the CTA container overlaps the image container instead of showing underneath it.
-  2. Mobile view navigation bar logo sits on the left hand side instead of middle.
-  3. The web page displays a footer now.
+1. Mobile view hero container: the CTA container overlaps the image container instead of showing underneath it.
+2. Mobile view navigation bar logo sits on the left hand side instead of middle.
+3. The web page displays a footer now.
 
   * [Mobile View](https://github.com/alexandruvalentin/Citizfied/blob/main/readme-images/mobile-wireframe.jpg)
   * [Tablet View - Home Page](https://github.com/alexandruvalentin/Citizfied/blob/main/readme-images/tablet-home.jpg)

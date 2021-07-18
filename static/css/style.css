@@ -453,6 +453,11 @@ textarea.form-control {
 #add-review .form-group p, #edit-review .form-group p {
     margin-top: 1rem;
     font-size: 1.7rem;
+    text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.30);
+}
+
+.h2, h2 {
+    text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.30);
 }
 
 /* ADD_REVIEW SLIDER */

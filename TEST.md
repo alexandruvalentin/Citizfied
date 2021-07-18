@@ -66,6 +66,10 @@ The app's erformance was tested using Google Chrome's **Lighthouse** for both de
 
 ## Testing Accessibility
 
+The website's accessibility was tested using the [a11y Color Contrast Accessibility Validator](https://color.a11y.com/Contrast/).
+> :heavy_check_mark: All Pages: The problems detected are concerning the text/background contrast due to the fact that the validator can't read the ```text-shadow``` styling value and therefore can be ignored.
+
+
 ## Code Validation
   - ### HTML :heavy_check_mark:
     > Tested and validated using W3C Validator. Issues were adjusted and the only warning is received is for the lack of heading in the section elements which is not conclusive since the validator doesn't get the dynamically loaded content (which has headings for each page). The content for each page was separately tested with the same validator by direct input. No other errors or warnings.
