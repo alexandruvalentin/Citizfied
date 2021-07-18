@@ -212,19 +212,6 @@ The MongoDB database used for this project is document-based as a relational dat
       # Mongo DB credentials
       os.environ.setdefault("MONGO_URI", "<mongo_uri>")
       os.environ.setdefault("MONGO_DBNAME", "<db_name>")
-      # Admin panel user and password
-      os.environ.setdefault("ADMIN_USERNAME", "<username>")
-      os.environ.setdefault("ADMIN_PASSWORD", "<password>")
-      # AWS Keys
-      os.environ.setdefault('AWS_ACCESS_KEY_ID', '<access_key>')
-      os.environ.setdefault('AWS_SECRET_ACCESS_KEY', '<secret_key>')
-      os.environ.setdefault('S3_BUCKET_NAME', '<bucket_name>')
-      # Email credentials. See mail_settings in app.py for more email settings
-      os.environ.setdefault("SENDGRID_API_KEY", "<api_key>")
-      os.environ.setdefault("MAIL_DEFAULT_SENDER", "<sender_email>")
-      # Recaptcha keys. Go to https://www.google.com/recaptcha/admin/create and create a new site
-      os.environ.setdefault("RC_SITE_KEY", "<recaptcha_site_key>")
-      os.environ.setdefault("RC_SECRET_KEY", "<recaptcha_secret_key>")
       ```
       > Make sure you add this file to **.gitignore** file so it will not be published.
   10. Install required `python` packages by running the following command into terminal:
